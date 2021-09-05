@@ -4,7 +4,7 @@
 
 <head>
     
-    <title>Ar Blog rre MSNeko - Hexo</title>
+    <title>Hexo</title>
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -13,22 +13,22 @@
     
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="你以为会有介绍，其实并不会有">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Ar Blog rre MSNeko">
-<meta property="og:url" content="http://example.com/2021/09/05/Ar-Blog-rre-MSNeko/index.html">
+    <meta name="description" content="MySQL查询优化1. 概述1.1 基本概述 查询执行过程  语法分析  生成逻辑查询执行计划  生成物理查询执行计划  执行查询执行计划    查询优化器通过 JOIN 对象的方法完成优化工作  JOIN.prepare() 子查询冗余子句消除，IN 类型子查询优化，将 ALL&#x2F;ANT 转化为 MIN&#x2F;MAX 等对简单子查询的优化  JOIN.optimize() 子查询上拉，外连接优化为内连接">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/Notes/SQLQueryOptimize.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="你以为会有介绍，其实并不会有">
+<meta property="og:description" content="MySQL查询优化1. 概述1.1 基本概述 查询执行过程  语法分析  生成逻辑查询执行计划  生成物理查询执行计划  执行查询执行计划    查询优化器通过 JOIN 对象的方法完成优化工作  JOIN.prepare() 子查询冗余子句消除，IN 类型子查询优化，将 ALL&#x2F;ANT 转化为 MIN&#x2F;MAX 等对简单子查询的优化  JOIN.optimize() 子查询上拉，外连接优化为内连接">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-09-05T14:04:30.000Z">
-<meta property="article:modified_time" content="2021-09-05T14:41:39.148Z">
+<meta property="article:published_time" content="2021-06-19T08:54:08.897Z">
+<meta property="article:modified_time" content="2021-06-19T07:36:06.829Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
-    <link rel="stylesheet" href="/css/style.css?v=1630854088406">
+    <link rel="stylesheet" href="/css/style.css?v=1630854088397">
      
     
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630854088406">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630854088397">
     
         <link rel="stylesheet" href="/custom.css">
     
@@ -128,27 +128,68 @@
   <article>
       
           <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
-              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="Ar Blog rre MSNeko" class="lazyload">
-              <h1>Ar Blog rre MSNeko</h1>
+              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="" class="lazyload">
+              <h1></h1>
           </div>
       
       
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2021年09月05日</a>
-    <a><i class="nexmoefont icon-areachart"></i>13 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年06月19日</a>
+    <a><i class="nexmoefont icon-areachart"></i>630 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
 </div>
 
       
 
-      <h1 id="你以为会有介绍，其实并不会有"><a href="#你以为会有介绍，其实并不会有" class="headerlink" title="你以为会有介绍，其实并不会有"></a>你以为会有介绍，其实并不会有</h1>
+      <h1 id="MySQL查询优化"><a href="#MySQL查询优化" class="headerlink" title="MySQL查询优化"></a>MySQL查询优化</h1><h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><h3 id="1-1-基本概述"><a href="#1-1-基本概述" class="headerlink" title="1.1 基本概述"></a>1.1 基本概述</h3><ul>
+<li><p>查询执行过程</p>
+<ul>
+<li><p>语法分析</p>
+</li>
+<li><p>生成逻辑查询执行计划</p>
+</li>
+<li><p>生成物理查询执行计划</p>
+</li>
+<li><p>执行查询执行计划</p>
+</li>
+</ul>
+</li>
+<li><p>查询优化器通过 <code>JOIN</code> 对象的方法完成优化工作</p>
+<ul>
+<li><p><code>JOIN.prepare()</code> 子查询冗余子句消除，<code>IN</code> 类型子查询优化，将 <code>ALL/ANT</code> 转化为 <code>MIN/MAX</code> 等对简单子查询的优化</p>
+</li>
+<li><p><code>JOIN.optimize()</code> 子查询上拉，外连接优化为内连接，消除嵌套链接，<code>WHERE/JOIN/ON/HAVING</code> 等子句的化简，优化没有 <code>GROUP BY</code> 子句情况下的聚合函数，剪裁分区，确定多表的连接路径，优化查询谓词，优化 <code>DISTINCT</code> ，创建临时表储存临时结果优化分组排序等操作</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-相关数据结构"><a href="#1-2-相关数据结构" class="headerlink" title="1.2 相关数据结构"></a>1.2 相关数据结构</h3><h4 id="1-2-1-查询树"><a href="#1-2-1-查询树" class="headerlink" title="1.2.1 查询树"></a>1.2.1 查询树</h4><ul>
+<li>语法分析器的结果，用 <code>st_select_lex</code> 类表示</li>
+</ul>
+<h4 id="1-2-2-基本对象"><a href="#1-2-2-基本对象" class="headerlink" title="1.2.2 基本对象"></a>1.2.2 基本对象</h4><ul>
+<li><p>关系 <code>TABLE_LIST</code> 储存查询优化阶段需要的信息，也有其他阶段的信息，基本上，只要和表相关的信息都在该结构体中</p>
+</li>
+<li><p>索引 <code>Key</code> 定义了索引的类型和索引的关键信息。其中元数据 <code>KEY_CREATE_INFO</code> 定义了索引算法、名称、注释等</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Ha_key_alg</span> &#123;</span></span><br><span class="line">    HA_KEY_ALG_UNDEF = <span class="number">0</span>,   <span class="comment">// Not specified</span></span><br><span class="line">    HA_KEY_ALG_BTREE = <span class="number">1</span>,   <span class="comment">// BTree，默认使用</span></span><br><span class="line">    HA_KEY_ALG_RTREE = <span class="number">2</span>,   <span class="comment">// RTree，用于空间搜索</span></span><br><span class="line">    HA_KEY_ALG_HASH = <span class="number">3</span>,    <span class="comment">// Hash，用于堆表搜索</span></span><br><span class="line">    HA_KEY_ALG_FULLTEXT = <span class="number">4</span> <span class="comment">// 全文索引，用于 MyISAM 储存索引的表</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>连接表 <code>st_join_table</code> 是介于关系和连接类之间的过渡对象，存放了关系的一些相关信息，也存放了连接操作需要的一些信息，所以称为连接表</p>
+</li>
+<li><p>连接类 <code>JOIN</code> 对应的查询语句的连接关系内容，是优化和执行的基本单位，也是优化结果的储存对象</p>
+</li>
+<li><p>约束条件 <code>ITEM</code> 指 <code>WHERE/JOIN/ON/HAVING</code> 子句中的谓词表达式，其分为两种：第一是限制条件，用来过滤单表的元组；第二是连接条件，满足连接条件的元组才会连接，连接条件表达式一般包括两个或以上关系的变量</p>
+</li>
+<li><p>位置 <code>st_position</code> 被连接的表的位置，储存了被访问的表、使用的访问方法、半连接策略的选择、半连接优化状态等</p>
+</li>
+<li><p>代价估算类 <code>Cost_estimate</code> 估算 I/O 花费、CPU 花费、远程操作花费和内存操作花费</p>
+</li>
+</ul>
+<h2 id="2-MySQL-查询优化（功能角度）"><a href="#2-MySQL-查询优化（功能角度）" class="headerlink" title="2. MySQL 查询优化（功能角度）"></a>2. MySQL 查询优化（功能角度）</h2><h3 id="2-1-逻辑查询优化"><a href="#2-1-逻辑查询优化" class="headerlink" title="2.1 逻辑查询优化"></a>2.1 逻辑查询优化</h3><h4 id="2-1-1-视图重写"><a href="#2-1-1-视图重写" class="headerlink" title="2.1.1 视图重写"></a>2.1.1 视图重写</h4>
   </article>
 
   
       
     <div class="nexmoe-post-copyright">
         <strong>Author：</strong>John Doe<br>
-        <strong>Link：</strong><a href="http://example.com/2021/09/05/Ar-Blog-rre-MSNeko/" title="http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;09&#x2F;05&#x2F;Ar-Blog-rre-MSNeko&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;09&#x2F;05&#x2F;Ar-Blog-rre-MSNeko&#x2F;</a><br>
+        <strong>Link：</strong><a href="http://example.com/Notes/SQLQueryOptimize.html" title="http:&#x2F;&#x2F;example.com&#x2F;Notes&#x2F;SQLQueryOptimize.html" target="_blank" rel="noopener">http:&#x2F;&#x2F;example.com&#x2F;Notes&#x2F;SQLQueryOptimize.html</a><br>
         
             <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
         
@@ -214,7 +255,7 @@
 
  
 
-<script async src="/js/app.js?v=1630854088406"></script>
+<script async src="/js/app.js?v=1630854088398"></script>
 
 
 

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    
+    <title>Hexo</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="函数式编程概念 C++ 实现0. $\lambda$ 演算lambda演算 - 知乎 (zhihu.com) 什么是lambda演算计算机科学，尤其是编程语言，经常倾向于使用一种特定的演算：Lambda演算（Lambda Calculus）。这种演算也广泛地被逻辑学家用于学习计算和离散数学的结构的本质。 lambda演算的语法  函数定义：Lambda演算中的函数是一个表达式，写成：lambda">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/Notes/FunctionalProgramming.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="函数式编程概念 C++ 实现0. $\lambda$ 演算lambda演算 - 知乎 (zhihu.com) 什么是lambda演算计算机科学，尤其是编程语言，经常倾向于使用一种特定的演算：Lambda演算（Lambda Calculus）。这种演算也广泛地被逻辑学家用于学习计算和离散数学的结构的本质。 lambda演算的语法  函数定义：Lambda演算中的函数是一个表达式，写成：lambda">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/Notes/images/fp/yc_cpp_yuki.jpg">
+<meta property="article:published_time" content="2021-08-25T13:50:19.867Z">
+<meta property="article:modified_time" content="2021-08-25T13:50:19.867Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Notes/images/fp/yc_cpp_yuki.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,npm/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css?v=233" crossorigin>
+    <link rel="stylesheet" href="/css/style.css?v=1630854088394">
+     
+    
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1630854088394">
+    
+        <link rel="stylesheet" href="/custom.css">
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="mdui-drawer-body-left">
+    
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="John Doe" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="John Doe"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="John Doe">
+            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="John Doe" alt="John Doe">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>1</div>
+        <div><span>Tags</span>0</div>
+        <div><span>Categories</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+            </form>
+         
+    </div>
+</div>
+    
+    <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=5CfKHun" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+    
+    
+
+    
+    
+    
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2021 John Doe
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a><script data-ad-client="ca-pub-2058306854838448" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+              <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="" class="lazyload">
+              <h1></h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年08月25日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1.7k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 8 分钟</a>
+</div>
+
+      
+
+      <h1 id="函数式编程概念-C-实现"><a href="#函数式编程概念-C-实现" class="headerlink" title="函数式编程概念 C++ 实现"></a>函数式编程概念 C++ 实现</h1><h2 id="0-lambda-演算"><a href="#0-lambda-演算" class="headerlink" title="0. $\lambda$ 演算"></a>0. $\lambda$ 演算</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/87209045">lambda演算 - 知乎 (zhihu.com)</a></p>
+<h2 id="什么是lambda演算"><a href="#什么是lambda演算" class="headerlink" title="什么是lambda演算"></a>什么是lambda演算</h2><p>计算机科学，尤其是编程语言，经常倾向于使用一种特定的演算：Lambda演算（Lambda Calculus）。这种演算也广泛地被逻辑学家用于学习计算和离散数学的结构的本质。</p>
+<h2 id="lambda演算的语法"><a href="#lambda演算的语法" class="headerlink" title="lambda演算的语法"></a>lambda演算的语法</h2><ol>
+<li> 函数定义：Lambda演算中的函数是一个表达式，写成：lambda x . body，表示“一个参数参数为x的函数，它的返回值为body的计算结果。” 这时我们说：Lambda表达式绑定了参数x。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// js描述 </span></span><br><span class="line"></span><br><span class="line">x =&gt; body;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li> 标识符引用（Identifier reference）：标识符引用就是一个名字，这个名字用于匹配函数表达式中的某个参数名。</li>
+<li> 函数应用（Function application）：函数应用写成把函数值放到它的参数前面的形式，如(lambda x . plus x x) y。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// js描述 </span><br><span class="line"></span><br><span class="line">const lambda = x =&gt; plus(x, x);  lambda(y);</span><br></pre></td></tr></table></figure>
+
+<h3 id="lambda演算中的自由标识符和绑定标识符"><a href="#lambda演算中的自由标识符和绑定标识符" class="headerlink" title="lambda演算中的自由标识符和绑定标识符"></a>lambda演算中的自由标识符和绑定标识符</h3><p>介绍Beta规约前我们需要了解lambda的标识符的概念。</p>
+<p>如果一个标识符是一个闭合Lambda表达式的参数，我们则称这个标识符是绑定标识符；如果一个标识符在任何封闭上下文中都没有绑定，那么它被称为自由标识符。</p>
+<p>例子：</p>
+<ul>
+<li>  lambda x . plus x y：在这个表达式中，y和plus是自由的，因为他们不是任何闭合的Lambda表达式的参数；而x是绑定的，因为它是函数定义的闭合表达式plus x y的参数。</li>
+<li>  lambda y . (lambda x . plus x y)：在内层演算lambda x . plus x y中，y和plus是自由的，x是绑定的。在完整表达中，x和y是绑定的：x受内层绑定，而y由剩下的演算绑定。plus仍然是自由的。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// js描述 </span><br><span class="line"></span><br><span class="line">x =&gt; plus(x, y); // x是绑定标识符，y和plus函数是自由标识符</span><br><span class="line"></span><br><span class="line">y =&gt; x =&gt; plus(x, y); // 在内层函数中x是绑定标识符，y和plus函数是自由标识符。在整个函数中x和y是绑定标识符，plus函数是自由标识符。</span><br></pre></td></tr></table></figure>
+
+<h2 id="Lambda演算运算法则"><a href="#Lambda演算运算法则" class="headerlink" title="Lambda演算运算法则"></a>Lambda演算运算法则</h2><p>Lambda演算只有两条真正的法则：称为Alpha和Beta。Alpha也被称为「转换」，Beta也被称为「规约」。</p>
+<h3 id="Alpha转换"><a href="#Alpha转换" class="headerlink" title="Alpha转换"></a>Alpha转换</h3><p>Alpha是一个重命名操作; 基本上就是说，变量的名称是不重要的：给定Lambda演算中的任意表达式，我们可以修改函数参数的名称，只要我们同时修改函数体内所有对它的自由引用。</p>
+<p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">;scheme描述  </span><br><span class="line"></span><br><span class="line">lambda (x) (+ 1 x)  </span><br><span class="line"></span><br><span class="line">;我们可以将x换成y，并不会更改表达式的含义  </span><br><span class="line"></span><br><span class="line">lambda (y) (+ 1 y)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// js描述 </span><br><span class="line"></span><br><span class="line">x =&gt; x + 1;  </span><br><span class="line"></span><br><span class="line">// 我们可以将x换成y，并不会更改表达式的含义 </span><br><span class="line"></span><br><span class="line">y =&gt; y + 1;</span><br></pre></td></tr></table></figure>
+
+<p><strong>通过Alpha转换我们可以实现递归等循环操作</strong></p>
+<h3 id="Beta规约"><a href="#Beta规约" class="headerlink" title="Beta规约"></a>Beta规约</h3><p>我们在应用lambda表达式时，在不引起绑定标识符和自由标识符之间的任何冲突的情况下，可以用参数值对lambda演算中对应的标识符相关的部分做替换，替换方法是把标识符用参数值替换。</p>
+<p>例子：</p>
+<p>假设我们有一个函数应用表达式：<code>(lambda x . x + 1) 3</code>。所谓Beta规约就是，我们可以通过替换函数体（即“x + 1”）来实现函数应用，用数值“3”取代引用的参数“x”。于是Beta规约的结果就是“3 + 1”。</p>
+<p>复杂点的例子：<code>(lambda x y. x y) (lambda z . z * z) 3</code>这是一个有两个参数的函数，它(的功能是)把第一个参数应用到第二个参数上。当我们运算时，我们替换第一个函数体中的参数“x”为<code>lambda z . z * z</code>；然后我们用“3”替换参数“y”，得到：<code>(lambda z . z * z) 3</code>。 再执行Beta规约，有“3 * 3”。</p>
+<p>遇到标识符冲突时，我们可以使用Alpha转换：</p>
+<p>(lambda z . (lambda x . x + z)) (x + 2) 3 // 我们先执行Alpha转换上面的表达式等价于下面的： (lambda z . (lambda y . y + z)) (x + 2) // 然后执行Beta规约 ==&gt; (lambda y . y + (x + 2))</p>
+<h3 id="eta规约"><a href="#eta规约" class="headerlink" title="eta规约"></a>eta规约</h3><p>两个lambda算子若对于相同的输入产生相同的输出，则认为它们外延相等，可以互相规约。</p>
+<p>例子：</p>
+<p>lambda x . f x &lt;== 执行eta规约，等价于 ==&gt; f</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// js描述 </span><br><span class="line"></span><br><span class="line">x =&gt; f(x);  // 等价于下面的函数 </span><br><span class="line"></span><br><span class="line">f(x);</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-组合子"><a href="#1-组合子" class="headerlink" title="1. 组合子"></a>1. 组合子</h2><p>shira_yuki 大佬的 Y 组合子实现 </p>
+<p><img src="./images/fp/yc_cpp_yuki.jpg"></p>
+<p>$\lambda f.(\lambda x.f(x\ x)) \lambda x.f(x\ x)$ <a target="_blank" rel="noopener" href="https://dreamsongs.com/Files/WhyOfY.pdf">WhyOfY.fm (dreamsongs.com)</a></p>
+<p>满足</p>
+<p>$X = (\lambda x.f(x\ x))(\lambda x.f(x\ x)) = f(x\ x)[x := \lambda x.f(x\ x)] = f X$</p>
+<p>因此可以将一阶函数的递归计算转化为求二阶函数的不动点。</p>
+<p>C++ 实现</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// c++20 通过</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> HOFunctor&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">YCombinator</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    HOFunctor func;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Function&gt;</span><br><span class="line">    <span class="built_in">YCombinator</span>(Function &amp;&amp;func) : <span class="built_in">func</span>((Function &amp;&amp;) func) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</span><br><span class="line">    <span class="function"><span class="keyword">decltype</span>(<span class="keyword">auto</span>) <span class="title">operator</span><span class="params">()</span><span class="params">(Args &amp;&amp;...args)</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">func</span>(*<span class="keyword">this</span>, (Args &amp;&amp;) args...);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Functor&gt;</span><br><span class="line"><span class="built_in">YCombinator</span>(Functor) -&gt; YCombinator&lt;Functor&gt;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用例</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    YCombinator fib = [&amp;](<span class="keyword">auto</span> &amp;&amp;fib, <span class="keyword">int</span> i) -&gt; <span class="keyword">int</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> i &lt; <span class="number">2</span> ? <span class="number">1</span> : <span class="built_in">fib</span>(i - <span class="number">2</span>) + <span class="built_in">fib</span>(i - <span class="number">1</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    std::cout &lt;&lt; <span class="built_in">fib</span>(<span class="number">10</span>) &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// c++14通过</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> HOFunctor&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">YCombinator</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    HOFunctor func;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Function&gt;</span><br><span class="line">    <span class="built_in">YCombinator</span>(Function &amp;&amp;func) : <span class="built_in">func</span>((Function &amp;&amp;) func) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</span><br><span class="line">    <span class="function"><span class="keyword">decltype</span>(<span class="keyword">auto</span>) <span class="title">operator</span><span class="params">()</span><span class="params">(Args &amp;&amp;...args)</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">func</span>(*<span class="keyword">this</span>, (Args &amp;&amp;) args...);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Functor&gt;</span><br><span class="line"><span class="function"><span class="keyword">decltype</span>(<span class="keyword">auto</span>) <span class="title">MakeYCombinator</span><span class="params">(Functor func)</span> </span>&#123; <span class="keyword">return</span> YCombinator&lt;Functor&gt;(func); &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用例</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    YCombinator fib = <span class="built_in">MakeYCombinator</span>([&amp;](<span class="keyword">auto</span> &amp;&amp;fib, <span class="keyword">int</span> i) -&gt; <span class="keyword">int</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> i &lt; <span class="number">2</span> ? <span class="number">1</span> : <span class="built_in">fib</span>(i - <span class="number">2</span>) + <span class="built_in">fib</span>(i - <span class="number">1</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    std::cout &lt;&lt; <span class="built_in">fib</span>(<span class="number">10</span>) &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// C++11</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">RecursiveFunc</span> &#123;</span></span><br><span class="line">	std::function&lt;<span class="built_in">F</span>(RecursiveFunc)&gt; o;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> A, <span class="keyword">typename</span> B&gt;</span><br><span class="line"><span class="function">std::function&lt;<span class="title">B</span><span class="params">(A)</span>&gt; <span class="title">Y</span> <span class="params">(std::function&lt;std::function&lt;B(A)&gt;(std::function&lt;B(A)&gt;)&gt; f)</span> </span>&#123;</span><br><span class="line">	RecursiveFunc&lt;std::function&lt;<span class="built_in">B</span>(A)&gt;&gt; r = &#123;</span><br><span class="line">		std::function&lt;std::function&lt;<span class="built_in">B</span>(A)&gt;(RecursiveFunc&lt;std::function&lt;<span class="built_in">B</span>(A)&gt;&gt;)&gt;([f](RecursiveFunc&lt;std::function&lt;<span class="built_in">B</span>(A)&gt;&gt; w) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="built_in">f</span>(std::function&lt;<span class="built_in">B</span>(A)&gt;([w](A x) &#123;</span><br><span class="line">				<span class="keyword">return</span> w.<span class="built_in">o</span>(w)(x);</span><br><span class="line">			&#125;));</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">return</span> r.<span class="built_in">o</span>(r);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">typedef</span> std::function&lt;<span class="built_in"><span class="keyword">int</span></span>(<span class="keyword">int</span>)&gt; Func;</span><br><span class="line"><span class="keyword">typedef</span> std::function&lt;<span class="built_in">Func</span>(Func)&gt; FuncFunc;</span><br><span class="line">FuncFunc almost_fac = [](Func f) &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Func</span>([f](<span class="keyword">int</span> n) &#123;</span><br><span class="line">		<span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span> n * <span class="built_in">f</span>(n - <span class="number">1</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">FuncFunc almost_fib = [](Func f) &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Func</span>([f](<span class="keyword">int</span> n) &#123;</span><br><span class="line">	 	<span class="keyword">if</span> (n &lt;= <span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span>  <span class="built_in">f</span>(n - <span class="number">1</span>) + <span class="built_in">f</span>(n - <span class="number">2</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">auto</span> fib = <span class="built_in">Y</span>(almost_fib);</span><br><span class="line">	<span class="keyword">auto</span> fac = <span class="built_in">Y</span>(almost_fac);</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;fib(10) = &quot;</span> &lt;&lt; <span class="built_in">fib</span>(<span class="number">10</span>) &lt;&lt; std::endl;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;fac(10) = &quot;</span> &lt;&lt; <span class="built_in">fac</span>(<span class="number">10</span>) &lt;&lt; std::endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>John Doe<br>
+        <strong>Link：</strong><a href="http://example.com/Notes/FunctionalProgramming.html" title="http:&#x2F;&#x2F;example.com&#x2F;Notes&#x2F;FunctionalProgramming.html" target="_blank" rel="noopener">http:&#x2F;&#x2F;example.com&#x2F;Notes&#x2F;FunctionalProgramming.html</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+      </div>
+  
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+     
+    <div id="nexmoe-search-space">
+        <div class="search-container">
+            <div class="search-header">
+                <div class="search-input-container">
+                    <input class="search-input" type="text" placeholder="Search" oninput="sinput();">
+                </div>
+                <a class="search-close" onclick="sclose();">×</a>
+            </div>
+            <div class="search-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+ 
+
+<script async src="/js/app.js?v=1630854088395"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+
+    
+
+
+
+
+
+</body>
+
+</html>
