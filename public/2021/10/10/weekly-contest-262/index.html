@@ -1,0 +1,325 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LeetCode 周赛 262 | Ar Blog rre MSNeko</title><meta name="keywords" content="LeetCode 周赛总结"><meta name="author" content="MiracleSNeko"><meta name="copyright" content="MiracleSNeko"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="LeetCode 周赛 262   排名 用户名 得分 完成时间 题目1 (3) 题目2 (4) 题目3 (5) 题目4 (6)    2378 &#x2F; 4260 MiracleSNeko 3 0:21:15 0:16:15 1       大写的寄  T1 5894. 至少在两个数组中出现的值 通过的用户数3063 尝试过的用户数3147 用户总通过次数3114 用户总提交次数4627 题目难度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode 周赛 262">
+<meta property="og:url" content="http://example.com/2021/10/10/weekly-contest-262/index.html">
+<meta property="og:site_name" content="Ar Blog rre MSNeko">
+<meta property="og:description" content="LeetCode 周赛 262   排名 用户名 得分 完成时间 题目1 (3) 题目2 (4) 题目3 (5) 题目4 (6)    2378 &#x2F; 4260 MiracleSNeko 3 0:21:15 0:16:15 1       大写的寄  T1 5894. 至少在两个数组中出现的值 通过的用户数3063 尝试过的用户数3147 用户总通过次数3114 用户总提交次数4627 题目难度">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-10-10T05:28:07.000Z">
+<meta property="article:modified_time" content="2021-10-10T14:42:09.058Z">
+<meta property="article:author" content="MiracleSNeko">
+<meta property="article:tag" content="LeetCode 周赛总结">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/10/10/weekly-contest-262/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'LeetCode 周赛 262',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-10-10 22:42:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ar Blog rre MSNeko</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">LeetCode 周赛 262</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-10-10T05:28:07.000Z" title="Created 2021-10-10 13:28:07">2021-10-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-10-10T14:42:09.058Z" title="Updated 2021-10-10 22:42:09">2021-10-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="LeetCode 周赛 262"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr>
+<h1 id="LeetCode-周赛-262"><a href="#LeetCode-周赛-262" class="headerlink" title="LeetCode 周赛 262"></a>LeetCode 周赛 262</h1><table>
+<thead>
+<tr>
+<th>排名</th>
+<th>用户名</th>
+<th>得分</th>
+<th>完成时间</th>
+<th><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-262/problems/two-out-of-three/">题目1 (3)</a></th>
+<th><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-262/problems/minimum-operations-to-make-a-uni-value-grid/">题目2 (4)</a></th>
+<th><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-262/problems/stock-price-fluctuation/">题目3 (5)</a></th>
+<th><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-262/problems/partition-array-into-two-arrays-to-minimize-sum-difference/">题目4 (6)</a></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2378 / 4260</td>
+<td>MiracleSNeko</td>
+<td>3</td>
+<td>0:21:15</td>
+<td>0:16:15 1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>大写的寄</p>
+</blockquote>
+<h2 id="T1-5894-至少在两个数组中出现的值"><a href="#T1-5894-至少在两个数组中出现的值" class="headerlink" title="T1 5894. 至少在两个数组中出现的值"></a>T1 5894. 至少在两个数组中出现的值</h2><ul>
+<li><strong>通过的用户数</strong>3063</li>
+<li><strong>尝试过的用户数</strong>3147</li>
+<li><strong>用户总通过次数</strong>3114</li>
+<li><strong>用户总提交次数</strong>4627</li>
+<li><strong>题目难度</strong> <strong>Easy</strong></li>
+</ul>
+<p>给你三个整数数组 <code>nums1</code>、<code>nums2</code> 和 <code>nums3</code> ，请你构造并返回一个 <strong>不同</strong> 数组，且由 <strong>至少</strong> 在 <strong>两个</strong> 数组中出现的所有值组成<em>。</em>数组中的元素可以按 <strong>任意</strong> 顺序排列。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：nums1 = [1,1,3,2], nums2 = [2,3], nums3 = [3]</span><br><span class="line">输出：[3,2]</span><br><span class="line">解释：至少在两个数组中出现的所有值为：</span><br><span class="line">- 3 ，在全部三个数组中都出现过。</span><br><span class="line">- 2 ，在数组 nums1 和 nums2 中出现过。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：nums1 = [3,1], nums2 = [2,3], nums3 = [1,2]</span><br><span class="line">输出：[2,3,1]</span><br><span class="line">解释：至少在两个数组中出现的所有值为：</span><br><span class="line">- 2 ，在数组 nums2 和 nums3 中出现过。</span><br><span class="line">- 3 ，在数组 nums1 和 nums2 中出现过。</span><br><span class="line">- 1 ，在数组 nums1 和 nums3 中出现过。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums1 = [1,2,2], nums2 = [4,3,3], nums3 = [5]</span><br><span class="line">输出：[]</span><br><span class="line">解释：不存在至少在两个数组中出现的值。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= nums1.length, nums2.length, nums3.length &lt;= 100</code></li>
+<li><code>1 &lt;= nums1[i], nums2[j], nums3[k] &lt;= 100</code></li>
+</ul>
+<p><strong>我的提交：</strong></p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// Dummy Luogu/LeetCode Playground</span></span><br><span class="line"><span class="keyword">use</span> std::cell::RefCell;</span><br><span class="line"><span class="keyword">use</span> std::cmp::&#123;max, min, Reverse&#125;;</span><br><span class="line"><span class="keyword">use</span> std::collections::&#123;BTreeSet, BinaryHeap, HashMap, HashSet, VecDeque&#125;;</span><br><span class="line"><span class="keyword">use</span> std::rc::Rc;</span><br><span class="line"></span><br><span class="line"><span class="built_in">macro_rules!</span> init_cin &#123;</span><br><span class="line">    () =&gt; &#123;&#123;</span><br><span class="line">        (io::stdin(), <span class="built_in">String</span>::new())</span><br><span class="line">    &#125;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">macro_rules!</span> scanf &#123;</span><br><span class="line">    ($buf: expr, $div: expr, $($x:ty), +) =&gt; &#123;&#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> iter = $buf.split($div);</span><br><span class="line">        ($(iter.next().and_then(|token| token.parse::&lt;$x&gt;().ok()), ) *)</span><br><span class="line">    &#125;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">macro_rules!</span> getline &#123;</span><br><span class="line">    ($cin: expr, $buf: expr) =&gt; &#123;&#123;</span><br><span class="line">        $buf.clear();</span><br><span class="line">        $cin.read_line(&amp;<span class="keyword">mut</span> $buf)?;</span><br><span class="line">    &#125;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">macro_rules!</span> map_or_insert &#123;</span><br><span class="line">    ($map: expr, $key: expr, $<span class="function"><span class="keyword">fn</span>: <span class="title">expr</span>, $<span class="title">val</span>: <span class="title">expr</span>) =&gt; &#123;&#123;</span></span><br><span class="line"><span class="function">        <span class="title">match</span> $<span class="title">map</span>.<span class="title">get_mut</span></span>(&amp;$key) &#123;</span><br><span class="line">            <span class="literal">Some</span>(<span class="keyword">mut</span> v) =&gt; &#123;</span><br><span class="line">                $<span class="function"><span class="keyword">fn</span></span>(v);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="literal">None</span> =&gt; &#123;</span><br><span class="line">                $map.insert($key, $val);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">impl</span> Solution &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">two_out_of_three</span></span>(nums1: <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt;, nums2: <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt;, nums3: <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt;) -&gt; <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt; &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> mp = HashMap::new();</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> nums1 &#123;</span><br><span class="line">            map_or_insert!(mp, i, |x: &amp;<span class="keyword">mut</span> <span class="built_in">i32</span>| *x |= <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> nums2 &#123;</span><br><span class="line">            map_or_insert!(mp, i, |x: &amp;<span class="keyword">mut</span> <span class="built_in">i32</span>| *x |= <span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> nums3 &#123;</span><br><span class="line">            map_or_insert!(mp, i, |x: &amp;<span class="keyword">mut</span> <span class="built_in">i32</span>| *x |= <span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        mp.into_iter()</span><br><span class="line">            .filter(|&amp;(_, v)| v == <span class="number">3</span> || v == <span class="number">5</span> || v == <span class="number">6</span> || v == <span class="number">7</span>)</span><br><span class="line">            .map(|(k, _)| k)</span><br><span class="line">            .collect()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="T2-5895-获取单值网格的最小操作数"><a href="#T2-5895-获取单值网格的最小操作数" class="headerlink" title="T2 5895. 获取单值网格的最小操作数"></a>T2 5895. 获取单值网格的最小操作数</h2><ul>
+<li><strong>通过的用户数</strong>1442</li>
+<li><strong>尝试过的用户数</strong>2095</li>
+<li><strong>用户总通过次数</strong>1486</li>
+<li><strong>用户总提交次数</strong>5233</li>
+<li><strong>题目难度</strong> <strong>Medium</strong></li>
+</ul>
+<p>给你一个大小为 <code>m x n</code> 的二维整数网格 <code>grid</code> 和一个整数 <code>x</code> 。每一次操作，你可以对 <code>grid</code> 中的任一元素 <strong>加</strong> <code>x</code> 或 <strong>减</strong> <code>x</code> 。</p>
+<p><strong>单值网格</strong> 是全部元素都相等的网格。</p>
+<p>返回使网格化为单值网格所需的 <strong>最小</strong> 操作数。如果不能，返回 <code>-1</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/09/21/gridtxt.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：grid = [[2,4],[6,8]], x = 2</span><br><span class="line">输出：4</span><br><span class="line">解释：可以执行下述操作使所有元素都等于 4 ： </span><br><span class="line">- 2 加 x 一次。</span><br><span class="line">- 6 减 x 一次。</span><br><span class="line">- 8 减 x 两次。</span><br><span class="line">共计 4 次操作。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/09/21/gridtxt-1.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：grid = [[1,5],[2,3]], x = 1</span><br><span class="line">输出：5</span><br><span class="line">解释：可以使所有元素都等于 3 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/09/21/gridtxt-2.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：grid = [[1,2],[3,4]], x = 2</span><br><span class="line">输出：-1</span><br><span class="line">解释：无法使所有元素相等。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>m == grid.length</code></li>
+<li><code>n == grid[i].length</code></li>
+<li><code>1 &lt;= m, n &lt;= 105</code></li>
+<li><code>1 &lt;= m * n &lt;= 105</code></li>
+<li><code>1 &lt;= x, grid[i][j] &lt;= 104</code></li>
+</ul>
+<p><strong>代码：</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-moves-to-equal-array-elements-ii/">某道题</a>的原题改编。找到中位数即可。至于为什么找中位数：</p>
+<p>因为可以证明 $f(x) = |x - x_1| + … + |x - x_n|$ 在中位数处取得最小值。</p>
+</blockquote>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">impl</span> Solution &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">min_operations</span></span>(grid: <span class="built_in">Vec</span>&lt;<span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt;&gt;, x: <span class="built_in">i32</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> flat = <span class="built_in">vec!</span>[];</span><br><span class="line">        grid.iter()</span><br><span class="line">            .for_each(|v| v.iter().for_each(|&amp;i| flat.push(i)));</span><br><span class="line">        flat.sort();</span><br><span class="line">        <span class="keyword">let</span> mid = flat[flat.len() / <span class="number">2</span>];</span><br><span class="line">        <span class="keyword">let</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> flat &#123;</span><br><span class="line">            <span class="keyword">let</span> diff = (i - mid).abs();</span><br><span class="line">            <span class="keyword">if</span> diff % x != <span class="number">0</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ans += diff / x;</span><br><span class="line">        &#125;</span><br><span class="line">        ans</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="T3-5896-股票价格波动"><a href="#T3-5896-股票价格波动" class="headerlink" title="T3 5896. 股票价格波动"></a>T3 5896. 股票价格波动</h2><ul>
+<li><strong>通过的用户数</strong>853</li>
+<li><strong>尝试过的用户数</strong>1843</li>
+<li><strong>用户总通过次数</strong>878</li>
+<li><strong>用户总提交次数</strong>4663</li>
+<li><strong>题目难度</strong> <strong>Medium</strong></li>
+</ul>
+<p>给你一支股票价格的数据流。数据流中每一条记录包含一个 <strong>时间戳</strong> 和该时间点股票对应的 <strong>价格</strong> 。</p>
+<p>不巧的是，由于股票市场内在的波动性，股票价格记录可能不是按时间顺序到来的。某些情况下，有的记录可能是错的。如果两个有相同时间戳的记录出现在数据流中，前一条记录视为错误记录，后出现的记录 <strong>更正</strong> 前一条错误的记录。</p>
+<p>请你设计一个算法，实现：</p>
+<ul>
+<li><strong>更新</strong> 股票在某一时间戳的股票价格，如果有之前同一时间戳的价格，这一操作将 <strong>更正</strong> 之前的错误价格。</li>
+<li>找到当前记录里 <strong>最新股票价格</strong> 。<strong>最新股票价格</strong> 定义为时间戳最晚的股票价格。</li>
+<li>找到当前记录里股票的 <strong>最高价格</strong> 。</li>
+<li>找到当前记录里股票的 <strong>最低价格</strong> 。</li>
+</ul>
+<p>请你实现 <code>StockPrice</code> 类：</p>
+<ul>
+<li><code>StockPrice()</code> 初始化对象，当前无股票价格记录。</li>
+<li><code>void update(int timestamp, int price)</code> 在时间点 <code>timestamp</code> 更新股票价格为 <code>price</code> 。</li>
+<li><code>int current()</code> 返回股票 <strong>最新价格</strong> 。</li>
+<li><code>int maximum()</code> 返回股票 <strong>最高价格</strong> 。</li>
+<li><code>int minimum()</code> 返回股票 <strong>最低价格</strong> 。</li>
+</ul>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">[&quot;StockPrice&quot;, &quot;update&quot;, &quot;update&quot;, &quot;current&quot;, &quot;maximum&quot;, &quot;update&quot;, &quot;maximum&quot;, &quot;update&quot;, &quot;minimum&quot;]</span><br><span class="line">[[], [1, 10], [2, 5], [], [], [1, 3], [], [4, 2], []]</span><br><span class="line">输出：</span><br><span class="line">[null, null, null, 5, 10, null, 5, null, 2]</span><br><span class="line"></span><br><span class="line">解释：</span><br><span class="line">StockPrice stockPrice = new StockPrice();</span><br><span class="line">stockPrice.update(1, 10); // 时间戳为 [1] ，对应的股票价格为 [10] 。</span><br><span class="line">stockPrice.update(2, 5);  // 时间戳为 [1,2] ，对应的股票价格为 [10,5] 。</span><br><span class="line">stockPrice.current();     // 返回 5 ，最新时间戳为 2 ，对应价格为 5 。</span><br><span class="line">stockPrice.maximum();     // 返回 10 ，最高价格的时间戳为 1 ，价格为 10 。</span><br><span class="line">stockPrice.update(1, 3);  // 之前时间戳为 1 的价格错误，价格更新为 3 。</span><br><span class="line">                          // 时间戳为 [1,2] ，对应股票价格为 [3,5] 。</span><br><span class="line">stockPrice.maximum();     // 返回 5 ，更正后最高价格为 5 。</span><br><span class="line">stockPrice.update(4, 2);  // 时间戳为 [1,2,4] ，对应价格为 [3,5,2] 。</span><br><span class="line">stockPrice.minimum();     // 返回 2 ，最低价格时间戳为 4 ，价格为 2 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= timestamp, price &lt;= 109</code></li>
+<li><code>update</code>，<code>current</code>，<code>maximum</code> 和 <code>minimum</code> <strong>总</strong> 调用次数不超过 <code>105</code> 。</li>
+<li><code>current</code>，<code>maximum</code> 和 <code>minimum</code> 被调用时，<code>update</code> 操作 <strong>至少</strong> 已经被调用过 <strong>一次</strong> 。</li>
+</ul>
+<p><strong>题解：</strong></p>
+<blockquote>
+<p>对 C++ 来说是个简单题，对 Rust 来说，坐牢（</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StockPrice</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">StockPrice</span>() &#123;</span><br><span class="line">        lastTime = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> timestamp, <span class="keyword">int</span> price)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//更新某一时间戳价格时</span></span><br><span class="line">        <span class="keyword">if</span>(f.<span class="built_in">count</span>(timestamp))&#123;</span><br><span class="line">            <span class="keyword">int</span> x = p.<span class="built_in">count</span>(f[timestamp]);</span><br><span class="line">            <span class="comment">//erase会删除所有值为f[timestamp]的数据</span></span><br><span class="line">            p.<span class="built_in">erase</span>(f[timestamp]);</span><br><span class="line">            <span class="comment">//只删去一个,多删的补回来</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;x<span class="number">-1</span>; i++) p.<span class="built_in">insert</span>(f[timestamp]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//更新价格</span></span><br><span class="line">        f[timestamp] = price;</span><br><span class="line">        <span class="comment">//记录最新时间戳</span></span><br><span class="line">        <span class="keyword">if</span>(timestamp &gt; lastTime) lastTime = timestamp;</span><br><span class="line">        <span class="comment">//插入价格</span></span><br><span class="line">        p.<span class="built_in">insert</span>(price);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">current</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> f[lastTime];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maximum</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> *p.<span class="built_in">rbegin</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minimum</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> *p.<span class="built_in">begin</span>();</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:.</span><br><span class="line">    <span class="comment">//从大到小排序的股票价格</span></span><br><span class="line">    multiset&lt;<span class="keyword">int</span>&gt; p;</span><br><span class="line">    <span class="comment">//时间戳对应的股票价格</span></span><br><span class="line">    unordered_map&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; f;</span><br><span class="line">    <span class="comment">//最新时间戳</span></span><br><span class="line">    <span class="keyword">int</span> lastTime;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your StockPrice object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * StockPrice* obj = new StockPrice();</span></span><br><span class="line"><span class="comment"> * obj-&gt;update(timestamp,price);</span></span><br><span class="line"><span class="comment"> * int param_2 = obj-&gt;current();</span></span><br><span class="line"><span class="comment"> * int param_3 = obj-&gt;maximum();</span></span><br><span class="line"><span class="comment"> * int param_4 = obj-&gt;minimum();</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">作者：foreversun</span><br><span class="line">链接：https:<span class="comment">//leetcode-cn.com/problems/stock-price-fluctuation/solution/5896-gu-piao-jie-ge-bo-dong-by-foreversu-28c2/</span></span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="T4-5897-将数组分成两个数组并最小化数组和的差"><a href="#T4-5897-将数组分成两个数组并最小化数组和的差" class="headerlink" title="T4 5897. 将数组分成两个数组并最小化数组和的差"></a>T4 5897. 将数组分成两个数组并最小化数组和的差</h2><ul>
+<li><strong>通过的用户数</strong>140</li>
+<li><strong>尝试过的用户数</strong>653</li>
+<li><strong>用户总通过次数</strong>160</li>
+<li><strong>用户总提交次数</strong>1707</li>
+<li><strong>题目难度</strong> <strong>Hard</strong></li>
+</ul>
+<p>给你一个长度为 <code>2 * n</code> 的整数数组。你需要将 <code>nums</code> 分成 <strong>两个</strong> 长度为 <code>n</code> 的数组，分别求出两个数组的和，并 <strong>最小化</strong> 两个数组和之 <strong>差的绝对值</strong> 。<code>nums</code> 中每个元素都需要放入两个数组之一。</p>
+<p>请你返回 <strong>最小</strong> 的数组和之差。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/10/02/ex1.png" alt="example-1"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [3,9,7,3]</span><br><span class="line">输出：2</span><br><span class="line">解释：最优分组方案是分成 [3,9] 和 [7,3] 。</span><br><span class="line">数组和之差的绝对值为 abs((3 + 9) - (7 + 3)) = 2 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [-36,36]</span><br><span class="line">输出：72</span><br><span class="line">解释：最优分组方案是分成 [-36] 和 [36] 。</span><br><span class="line">数组和之差的绝对值为 abs((-36) - (36)) = 72 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/10/02/ex3.png" alt="example-3"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [2,-1,0,4,-2,-9]</span><br><span class="line">输出：0</span><br><span class="line">解释：最优分组方案是分成 [2,4,-9] 和 [-1,0,-2] 。</span><br><span class="line">数组和之差的绝对值为 abs((2 + 4 + -9) - (-1 + 0 + -2)) = 0 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= n &lt;= 15</code></li>
+<li><code>nums.length == 2 * n</code></li>
+<li><code>-107 &lt;= nums[i] &lt;= 107</code></li>
+</ul>
+<p><strong>代码：</strong></p>
+<blockquote>
+<p>参考 1755. 最接近目标值的子序列和。$2^{30}$ 的大小是 $10^9$ 级别，直接枚举必定超时。</p>
+<p>所以要将这 $2n$ 长度的数组拆分为左右两部分，重点考虑到左右都取了元素的情况</p>
+</blockquote>
+<blockquote>
+<p>  详情参考折半搜索相关内容</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minimumDifference</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 前 n 个元素元素组合情况存储在left 中, 后 n 个元素组合请情况存储在 right 中</span></span><br><span class="line">        <span class="comment">// Map&lt;元素个数, Set&lt;key个元素的总和&gt;&gt;</span></span><br><span class="line">        Map&lt;Integer, TreeSet&lt;Integer&gt;&gt; left = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Map&lt;Integer, TreeSet&lt;Integer&gt;&gt; right = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> min = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">int</span> total = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> n = nums.length / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i &lt; <span class="number">2</span> * n;i++)&#123;</span><br><span class="line">            total += nums[i];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(i &lt; n)&#123;</span><br><span class="line">                left.put(i+<span class="number">1</span>, <span class="keyword">new</span> TreeSet&lt;&gt;());</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                right.put(i - n + <span class="number">1</span>, <span class="keyword">new</span> TreeSet&lt;&gt;());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        dfs(nums, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, n, left);</span><br><span class="line">        dfs(nums, <span class="number">0</span>, <span class="number">0</span>, n, <span class="number">2</span>*n, right);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 情况一, 一部分元素在左侧，一部分元素在右侧</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            TreeSet&lt;Integer&gt; set = left.get(i);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> leftSum : set)&#123;</span><br><span class="line">                <span class="comment">// 前 i 个元素在  left 中, 后  n - i 个元素在 right 中</span></span><br><span class="line">                <span class="comment">// 最佳情况是分成两侧相等即  total / 2, 寻找最佳组合最近的组合</span></span><br><span class="line">                Integer rightSum = right.get(n-i).ceiling(total / <span class="number">2</span> - leftSum);</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">null</span> != rightSum)&#123;</span><br><span class="line">                    <span class="keyword">int</span> sum = leftSum + rightSum;</span><br><span class="line">                    min = Math.min(min, Math.abs(sum - (total - sum)));</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                rightSum = right.get(n-i).floor(total / <span class="number">2</span> - leftSum);</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">null</span> != rightSum)&#123;</span><br><span class="line">                    <span class="keyword">int</span> sum = leftSum + rightSum;</span><br><span class="line">                    min = Math.min(min, Math.abs(sum - (total - sum)));</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(min == <span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 情况二,  所有元素都来源与一侧</span></span><br><span class="line">        TreeSet&lt;Integer&gt; set = left.get(n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> sum : set)&#123;</span><br><span class="line">            min = Math.min(min, Math.abs(sum - (total - sum)));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> min;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 递归枚举所有的元素组合,将元素组合情况存 Map&lt;元素个数, Set&lt;key个元素的总和&gt;&gt; 中</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sum   已选数组和</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> count 已选数个数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> idx   当前索引</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> limit   索引边界</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> visited</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> sum, <span class="keyword">int</span> count, <span class="keyword">int</span> idx, <span class="keyword">int</span> limit, Map&lt;Integer, TreeSet&lt;Integer&gt;&gt; visited)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(visited.containsKey(count))&#123;</span><br><span class="line">            visited.get(count).add(sum);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(idx &gt;= limit) <span class="keyword">return</span> ;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 选择当前元素</span></span><br><span class="line">        dfs(nums, sum + nums[idx], count+<span class="number">1</span>, idx+<span class="number">1</span>, limit, visited);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 不选当前元素</span></span><br><span class="line">        dfs(nums, sum, count, idx+<span class="number">1</span>, limit, visited);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">作者：smqk</span><br><span class="line">链接：https:<span class="comment">//leetcode-cn.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/solution/fen-zu-mei-ju-shuang-100-by-smqk-wnpe/</span></span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">MiracleSNeko</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/10/weekly-contest-262/">http://example.com/2021/10/10/weekly-contest-262/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/LeetCode-%E5%91%A8%E8%B5%9B%E6%80%BB%E7%BB%93/">LeetCode 周赛总结</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/10/10/Luogu-Template/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">洛谷模板题集合</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2021/09/19/biweekly-contest-61/" title="LeetCode 双周赛 61"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-19</div><div class="title">LeetCode 双周赛 61</div></div></a></div><div><a href="/2021/10/06/biweekly-contest-62/" title="LeetCode 双周赛 62"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-06</div><div class="title">LeetCode 双周赛 62</div></div></a></div><div><a href="/2021/09/12/weekly-contest-258/" title="LeetCode 周赛 258"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-12</div><div class="title">LeetCode 周赛 258</div></div></a></div><div><a href="/2021/09/19/weekly-contest-259/" title="LeetCode 周赛 259"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-19</div><div class="title">LeetCode 周赛 259</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">MiracleSNeko</div><div class="author-info__description">世界には今も確かに希望がありますよ。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">7</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LeetCode-%E5%91%A8%E8%B5%9B-262"><span class="toc-number">1.</span> <span class="toc-text">LeetCode 周赛 262</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#T1-5894-%E8%87%B3%E5%B0%91%E5%9C%A8%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E5%80%BC"><span class="toc-number">1.1.</span> <span class="toc-text">T1 5894. 至少在两个数组中出现的值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T2-5895-%E8%8E%B7%E5%8F%96%E5%8D%95%E5%80%BC%E7%BD%91%E6%A0%BC%E7%9A%84%E6%9C%80%E5%B0%8F%E6%93%8D%E4%BD%9C%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text">T2 5895. 获取单值网格的最小操作数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T3-5896-%E8%82%A1%E7%A5%A8%E4%BB%B7%E6%A0%BC%E6%B3%A2%E5%8A%A8"><span class="toc-number">1.3.</span> <span class="toc-text">T3 5896. 股票价格波动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T4-5897-%E5%B0%86%E6%95%B0%E7%BB%84%E5%88%86%E6%88%90%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E5%B9%B6%E6%9C%80%E5%B0%8F%E5%8C%96%E6%95%B0%E7%BB%84%E5%92%8C%E7%9A%84%E5%B7%AE"><span class="toc-number">1.4.</span> <span class="toc-text">T4 5897. 将数组分成两个数组并最小化数组和的差</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/10/10/weekly-contest-262/" title="LeetCode 周赛 262"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 周赛 262"/></a><div class="content"><a class="title" href="/2021/10/10/weekly-contest-262/" title="LeetCode 周赛 262">LeetCode 周赛 262</a><time datetime="2021-10-10T05:28:07.000Z" title="Created 2021-10-10 13:28:07">2021-10-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/10/Luogu-Template/" title="洛谷模板题集合"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="洛谷模板题集合"/></a><div class="content"><a class="title" href="/2021/10/10/Luogu-Template/" title="洛谷模板题集合">洛谷模板题集合</a><time datetime="2021-10-09T16:01:12.000Z" title="Created 2021-10-10 00:01:12">2021-10-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/06/biweekly-contest-62/" title="LeetCode 双周赛 62"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 双周赛 62"/></a><div class="content"><a class="title" href="/2021/10/06/biweekly-contest-62/" title="LeetCode 双周赛 62">LeetCode 双周赛 62</a><time datetime="2021-10-06T03:51:36.000Z" title="Created 2021-10-06 11:51:36">2021-10-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/19/biweekly-contest-61/" title="LeetCode 双周赛 61"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 双周赛 61"/></a><div class="content"><a class="title" href="/2021/09/19/biweekly-contest-61/" title="LeetCode 双周赛 61">LeetCode 双周赛 61</a><time datetime="2021-09-19T06:56:09.000Z" title="Created 2021-09-19 14:56:09">2021-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/19/weekly-contest-259/" title="LeetCode 周赛 259"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 周赛 259"/></a><div class="content"><a class="title" href="/2021/09/19/weekly-contest-259/" title="LeetCode 周赛 259">LeetCode 周赛 259</a><time datetime="2021-09-19T06:55:49.000Z" title="Created 2021-09-19 14:55:49">2021-09-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By MiracleSNeko</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer src="/live2d-widget/autoload.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

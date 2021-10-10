@@ -179,19 +179,7 @@ impl Solution {
 
 > [某道题](https://leetcode-cn.com/problems/minimum-moves-to-equal-array-elements-ii/)的原题改编。找到中位数即可。至于为什么找中位数：
 >
-> 因为该题和数组维数关系不大，故下面解题思路中都以一维数组代替。
-> 假设数组中有n个值，选取中位数median作为转换后的最终值需要思考如下几个问题？
->
-> 为什么要选中位数median？
-> 可以这样想：在一条线上有n颗树，从中间点开始向两边走，不管向左边还是右边，都距离至少n/2颗树越来越远，而距离至多n/2颗树越来越近。因此在中间点是距离所有树的总距离是最小的。
-> 如果有其他疑惑的话：比如选择数组中的其他n-1个数可以吗？选择除了数组中n个数之外的其他值可以吗（平均数）？请看详细证明=>证明
-> 怎样判断无解的情况？
-> 不管选择数组中哪个点作为目标值，都会涉及到其他点向该点的转换。固定其中一个点为median，其他点如果无法向median转换，则选取数组中其他n-1个点也仍然无解。即x≠>median，则median≠>x。
->
-> 作者：yimeixiaobai
-> 链接：https://leetcode-cn.com/problems/minimum-operations-to-make-a-uni-value-grid/solution/tan-xin-qiu-zui-xiao-zhuan-huan-ci-shu-l-lcyd/
-> 来源：力扣（LeetCode）
-> 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+> 因为可以证明 $f(x) = |x - x_1| + ... + |x - x_n|$ 在中位数处取得最小值。
 
 ```rust
 impl Solution {
