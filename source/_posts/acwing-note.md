@@ -130,4 +130,16 @@ tags: 算法笔记
 
 -   核心思想
     -   优化暴力二重循环到 $O(N)$ 复杂度
+    
+-   模板
+
+    ```c++
+    for (int i = 0, j = 0; i < n; ++i)
+    {
+        while (j < i && check(i, j)) ++j;
+        /* Do sth here */
+    }
+    ```
+
+
 
