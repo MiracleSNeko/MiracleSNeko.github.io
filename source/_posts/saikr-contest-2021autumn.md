@@ -1,5 +1,11 @@
 ---
-title: saikr-contest-2021autumn
+title: saikr 2021秋季赛
 date: 2021-10-25 22:50:08
-tags:
+tags: saikr
 ---
+
+------
+
+# Saikr 2021 秋季团体赛
+
+>   参赛队员：	兔子在宁野爹一号	兔子在读亲爹	兔子在京野爹
