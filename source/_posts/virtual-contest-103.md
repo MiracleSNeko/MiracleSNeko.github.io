@@ -8,10 +8,6 @@ tags: LeetCode 周赛总结
 
 # LeetCode 虚拟周赛 103
 
-| 排名     | 用户名                  | 得分 | 完成时间 | [题目1 (3)](https://leetcode-cn.com/contest/weekly-contest-103/problems/smallest-range-i/) | [题目2 (6)](https://leetcode-cn.com/contest/weekly-contest-103/problems/snakes-and-ladders/) | [题目3 (6)](https://leetcode-cn.com/contest/weekly-contest-103/problems/smallest-range-ii/) | [题目4 (6)](https://leetcode-cn.com/contest/weekly-contest-103/problems/online-election/) |
-| -------- | ----------------------- | ---- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 16 / 574 | MiracleSNeko *虚拟竞赛* | 3    | 0:02:57  | 0:02:57                                                      |                                                              |                                                              |                                                              |
-
 >   人做麻了，被 T2 自己的傻逼想法卡死
 
 ## T1 908. 最小差值 I
