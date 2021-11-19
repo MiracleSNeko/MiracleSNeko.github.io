@@ -1,0 +1,540 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AcWing 算法基础课笔记 | Ar Blog rre MSNeko</title><meta name="keywords" content="算法笔记"><meta name="author" content="MiracleSNeko"><meta name="copyright" content="MiracleSNeko"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="AcWing 算法基础课笔记   笔记内容最终将由 markmap 工具生成思维导图  基础算法快速排序 核心思想    分治法   算法步骤  确定分界点   左端点   右端点   中间点   随机点   调整区间   目标：使得左半边所有的数小于等于分界点，右半边所有的数大于等于分界点 调整方法：   暴力：直接开两个数组，扫描一遍   常用：左右各一个游标。左边找第一个大于分点的，右边找">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AcWing 算法基础课笔记">
+<meta property="og:url" content="http://example.com/2021/10/11/acwing-note/index.html">
+<meta property="og:site_name" content="Ar Blog rre MSNeko">
+<meta property="og:description" content="AcWing 算法基础课笔记   笔记内容最终将由 markmap 工具生成思维导图  基础算法快速排序 核心思想    分治法   算法步骤  确定分界点   左端点   右端点   中间点   随机点   调整区间   目标：使得左半边所有的数小于等于分界点，右半边所有的数大于等于分界点 调整方法：   暴力：直接开两个数组，扫描一遍   常用：左右各一个游标。左边找第一个大于分点的，右边找">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-10-11T14:53:15.000Z">
+<meta property="article:modified_time" content="2021-11-17T05:23:32.268Z">
+<meta property="article:author" content="MiracleSNeko">
+<meta property="article:tag" content="算法笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/10/11/acwing-note/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'AcWing 算法基础课笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-17 13:23:32'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ar Blog rre MSNeko</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">AcWing 算法基础课笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-10-11T14:53:15.000Z" title="Created 2021-10-11 22:53:15">2021-10-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-11-17T05:23:32.268Z" title="Updated 2021-11-17 13:23:32">2021-11-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="AcWing 算法基础课笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr>
+<h1 id="AcWing-算法基础课笔记"><a href="#AcWing-算法基础课笔记" class="headerlink" title="AcWing 算法基础课笔记"></a>AcWing 算法基础课笔记</h1><blockquote>
+<p>  笔记内容最终将由 <code>markmap</code> 工具生成思维导图</p>
+</blockquote>
+<h2 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h2><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><ul>
+<li><p>核心思想</p>
+<ul>
+<li>  分治法</li>
+</ul>
+</li>
+<li><p>算法步骤</p>
+<ul>
+<li>确定分界点<ul>
+<li>  左端点</li>
+<li>  右端点</li>
+<li>  中间点</li>
+<li>  随机点</li>
+</ul>
+</li>
+<li>调整区间<ul>
+<li>  目标：使得左半边所有的数小于等于分界点，右半边所有的数大于等于分界点</li>
+<li>调整方法：<ul>
+<li>  暴力：直接开两个数组，扫描一遍</li>
+<li>  常用：左右各一个游标。左边找第一个大于分点的，右边找第一个小于分点的，然后交换即可</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>  递归处理</li>
+</ul>
+</li>
+<li><p>模板</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="keyword">int</span> q[], <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &gt;= r) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> x = q[(l + r) &gt;&gt; <span class="number">1</span>], i = l - <span class="number">1</span>, j = r + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (i &lt; j)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span> i++; <span class="keyword">while</span> (q[i] &lt; x);</span><br><span class="line">        <span class="keyword">do</span> j--; <span class="keyword">while</span> (q[j] &gt; x);</span><br><span class="line">        <span class="keyword">if</span> (i &lt; j) <span class="built_in">swap</span>(q[i], q[j]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">quick_sort</span>(q, l, j);</span><br><span class="line">    <span class="built_in">quick_sort</span>(q, j + <span class="number">1</span>, r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><ul>
+<li><p>核心思想</p>
+<ul>
+<li>  归并</li>
+</ul>
+</li>
+<li><p>算法步骤</p>
+<ul>
+<li>  先递归左右两侧</li>
+<li>  左右有序数组合并成一个有序数组</li>
+</ul>
+</li>
+</ul>
+<h3 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h3><ul>
+<li><p>核心思想</p>
+<ul>
+<li>充分不必要条件<ul>
+<li>  单调性</li>
+</ul>
+</li>
+<li>本质<ul>
+<li>  将序列按照某个性质从中间一分为二，二分法可以寻找两个性质的边界</li>
+</ul>
+</li>
+<li>关注点<ul>
+<li>  根据查找的答案属于哪个性质，确定更新方式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>模板</p>
+<ul>
+<li>  右侧二分</li>
+</ul>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 找左边界</span></span><br><span class="line"><span class="keyword">int</span> l = <span class="number">0</span>, r = n - <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (l &lt; r)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> m = l + r &gt;&gt; <span class="number">1</span>;	<span class="comment">// 不加 1 会出现 [l, l] 死循环</span></span><br><span class="line">    <span class="built_in">check</span>(m)? r = m; l = m + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>  左侧二分</li>
+</ul>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 找右边界</span></span><br><span class="line"><span class="keyword">int</span> l = <span class="number">0</span>, r = n - <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (l &lt; r)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> m = l + r + <span class="number">1</span>&gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">check</span>(m)? l = m; r = m - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>扩展</p>
+<ul>
+<li>浮点数二分<ul>
+<li>  停止条件是区间长度小于 $\varepsilon$</li>
+<li>  不需要整数二分的考虑边界，直接往 <code>mid</code> 靠近即可</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="高精度"><a href="#高精度" class="headerlink" title="高精度"></a>高精度</h3><ul>
+<li>核心思想<ul>
+<li>  将大整数的每一位存入数组</li>
+<li>  先存低位，后存高位</li>
+</ul>
+</li>
+<li>优化<ul>
+<li>  一次存 4 位</li>
+</ul>
+</li>
+</ul>
+<h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><ul>
+<li>核心思想<ul>
+<li>  快速求出原数组里一段数的和</li>
+</ul>
+</li>
+<li>技巧<ul>
+<li>  定义 $S[0] = 0$ 可以减少很多特判</li>
+</ul>
+</li>
+</ul>
+<h3 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h3><ul>
+<li>核心思想<ul>
+<li>  前缀和的逆运算，构造一个数组使得该数组的前缀和为原数组</li>
+</ul>
+</li>
+<li>技巧<ul>
+<li>  在差分数组里做出两个修改 <code>b[l] += c, b[r + 1] -= c</code> 等价于原数组 <code>a[l: r] += c</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h3><ul>
+<li><p>核心思想</p>
+<ul>
+<li>优化暴力二重循环到 $O(N)$ 复杂度</li>
+</ul>
+</li>
+<li><p>模板</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span> (j &lt; i &amp;&amp; <span class="built_in">check</span>(i, j)) ++j;</span><br><span class="line">    <span class="comment">/* Do sth here */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="离散化"><a href="#离散化" class="headerlink" title="离散化"></a>离散化</h3><ul>
+<li>核心思想<ul>
+<li>  跨度较大但稀疏的整数映射到排序后的下标</li>
+<li>  核心是保序和二分查找</li>
+</ul>
+</li>
+</ul>
+<h3 id="区间合并"><a href="#区间合并" class="headerlink" title="区间合并"></a>区间合并</h3><ul>
+<li>算法步骤<ul>
+<li>  按区间左端点排序</li>
+<li>扫描过程中维护一个当前区间，考虑下一个区间和当前区间的关系<ul>
+<li>  包含：不处理</li>
+<li>  相交：更新当前区间右端点</li>
+<li>  相离：当前区间结束，更新左右端点为新区间</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><ul>
+<li>动态链表<ul>
+<li>  每次 new 一个 Node ，较慢</li>
+</ul>
+</li>
+<li>静态链表<ul>
+<li>  数组模拟 Elem 和 Next 域，快</li>
+<li>应用<ul>
+<li>  邻接表</li>
+<li>  链式前向星</li>
+</ul>
+</li>
+<li>扩展<ul>
+<li>双向链表<ul>
+<li>  模拟 Prev 域和 Next 域</li>
+<li>  维护一个 head 变量和一个 tail 变量</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h3><ul>
+<li>常见题型<ul>
+<li>  给定序列，求每一个数左边最近的最小数</li>
+</ul>
+</li>
+<li>时间复杂度<ul>
+<li>  <code>O(N)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="单调队列"><a href="#单调队列" class="headerlink" title="单调队列"></a>单调队列</h3><ul>
+<li>常见题型<ul>
+<li>  滑动窗口最值</li>
+</ul>
+</li>
+</ul>
+<h3 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h3><ul>
+<li><p>核心思想</p>
+<ul>
+<li>  暴力思想中，当前匹配失败，会有部分串已匹配</li>
+<li>  记录向后移动多少可以使得已匹配的串和新的位置仍然匹配</li>
+<li>  这个记录只和模板串有关！这就是 Next 数组</li>
+<li>  <code>next[i] = j</code> 意味着 <code>p[1..=j] == p[i - j + 1..=i]</code></li>
+<li>  假设从 <code>s[i]</code> 开始不再匹配，即目前 <code>s[i - 1] == p[j] &amp;&amp; s[i] != p[j + 1] </code>，此时直接向后移动模式串，将 <code>p[next[j]]</code> 对齐到 <code>s[i-1]</code></li>
+<li>预处理思想与匹配相似，如果匹配不上，就回退到 <code>next</code> 对应位置，直到退到下标 0</li>
+</ul>
+</li>
+<li><p>代码模板</p>
+<ul>
+<li><p>匹配过程</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// p[N] 匹配 s[M]</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>; i &lt;= M; ++i) <span class="comment">// j 和 i 错开一位</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span> (j &amp;&amp; s[i] != p[j + <span class="number">1</span>]) j = next[j];	<span class="comment">// j 不能退到开头之前</span></span><br><span class="line">    <span class="keyword">if</span> (s[i] == p[j + <span class="number">1</span>]) ++j;</span><br><span class="line">    <span class="keyword">if</span> (j == N) </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="comment">/* 匹配成功; */</span>  </span><br><span class="line">        j = next[j]; 	<span class="comment">// 准备匹配下一次</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>预处理</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>, j = <span class="number">0</span>; i &lt;= N; ++i)	<span class="comment">// next[1] === 0</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span> (j &amp;&amp; p[i] != p[j + <span class="number">1</span>]) j = next[j];</span><br><span class="line">    <span class="keyword">if</span> (p[i] == p[j + <span class="number">1</span>]) ++j;</span><br><span class="line">    next[i] = j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>注意</p>
+<ul>
+<li>  本模板字符串下标均从 1 开始</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Trie-树"><a href="#Trie-树" class="headerlink" title="Trie 树"></a>Trie 树</h3><ul>
+<li>  核心思想</li>
+<li>作用<ul>
+<li>  存储字符串</li>
+<li>  查找字符串</li>
+</ul>
+</li>
+<li>实现<ul>
+<li>  每个单词结尾的节点标记 <code>is_end = true</code></li>
+<li>  类似数组模拟链表，用 <code>tot</code> 表示当前位置</li>
+</ul>
+</li>
+</ul>
+<h3 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h3><ul>
+<li><p>核心思想</p>
+<ul>
+<li><p>路径压缩</p>
+<blockquote>
+<p>   ​    我愿将之称为最优美的一行代码</p>
+</blockquote>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> x == parent[x]? x: parent[x] = <span class="built_in">find</span>(parent[x]);</span><br></pre></td></tr></table></figure></li>
+<li><p>按秩合并</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (rank[fy] &gt; rank[fx]) <span class="built_in">swap</span>(fy, fx);</span><br><span class="line">parent[fy] = fx;</span><br><span class="line"><span class="keyword">if</span> (rank[fx] == rank[fy]) rank[fx]++;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>作用</p>
+<ul>
+<li>  合并区间</li>
+<li>  查询是否同类</li>
+</ul>
+</li>
+<li><p>复杂度</p>
+<ul>
+<li>  $O(\alpha(N))$</li>
+</ul>
+</li>
+</ul>
+<h3 id="二叉堆"><a href="#二叉堆" class="headerlink" title="二叉堆"></a>二叉堆</h3><ul>
+<li><p>核心操作</p>
+<ul>
+<li>Down<ul>
+<li>  和较小的孩子交换</li>
+<li>  继续 Down</li>
+</ul>
+</li>
+<li>Up<ul>
+<li>  和父亲交换</li>
+<li>  继续 Up</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>实现操作</p>
+<ul>
+<li><p>建堆</p>
+<ul>
+<li>  从 $n/2$ 到 1 执行 down 操作</li>
+<li>  跳过了最后一层叶子节点</li>
+<li>  复杂度 $O(N)$</li>
+</ul>
+</li>
+<li><p>插入</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heap[++tot] = x, <span class="built_in">up</span>(tot);</span><br></pre></td></tr></table></figure></li>
+<li><p>删除</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heap[k] = heap[tot--], <span class="keyword">if</span> (k != <span class="number">1</span>) <span class="built_in">up</span>(k), <span class="built_in">down</span>(k);	<span class="comment">// up 和 down 至多执行一个</span></span><br></pre></td></tr></table></figure></li>
+<li><p>修改</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">heap[k] = x, <span class="built_in">up</span>(k), <span class="built_in">down</span>(k);</span><br></pre></td></tr></table></figure></li>
+<li><p>修改第 k 个元素</p>
+<ul>
+<li><p>  每个元素额外处理两个“指针”</p>
+</li>
+<li><p>  ph[k] 储存索引 i</p>
+</li>
+<li><p>  hp[i] 储存索引 i 对应的元素 k</p>
+</li>
+<li><p>  swap 需要交换 ph[hp[a]], ph[hp[b]] 以及 hp[a] 和 hp[b]</p>
+</li>
+<li><p>  交换完成后堆的元素和 ph 依旧是双向指向关系。交换 ph 修改 ph 指向堆的指针，交换 hp 修改堆指向 ph 的指针</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="散列表"><a href="#散列表" class="headerlink" title="散列表"></a>散列表</h3><h2 id="搜索与图论"><a href="#搜索与图论" class="headerlink" title="搜索与图论"></a>搜索与图论</h2><h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><ul>
+<li>深度优先<ul>
+<li>数据结构<ul>
+<li>  栈</li>
+</ul>
+</li>
+<li>空间<ul>
+<li>  $O(h)$</li>
+</ul>
+</li>
+<li>思想<ul>
+<li>  回溯</li>
+<li>  剪枝</li>
+</ul>
+</li>
+<li>关键操作<ul>
+<li>  恢复现场</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>广度优先<ul>
+<li>数据结构<ul>
+<li>  队列</li>
+</ul>
+</li>
+<li>空间<ul>
+<li>  $O(2^h)$</li>
+</ul>
+</li>
+<li>性质<ul>
+<li>  具有最短路性质</li>
+<li>  要求边权相等才可以用于求最短路</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="图"><a href="#图" class="headerlink" title="图"></a>图</h3><ul>
+<li>图的储存<ul>
+<li>  邻接矩阵</li>
+<li>邻接表<ul>
+<li>  链式前向星</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>拓扑排序<ul>
+<li>拓扑序列<ul>
+<li>  拓扑序列的边一定从前向后</li>
+<li>  只针对有向图</li>
+<li>  有向无环图一定存在拓扑序列</li>
+</ul>
+</li>
+<li>拓扑排序<ul>
+<li>  入度为 0 的点可以排在当前序列最前作为入口</li>
+<li>  入度为 0 的点入队</li>
+<li>  BFS 枚举所有出边并删掉</li>
+<li>  新的入度为 0 的点入队</li>
+<li>  队空结束</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="最短路问题"><a href="#最短路问题" class="headerlink" title="最短路问题"></a>最短路问题</h3><ul>
+<li>分类<ul>
+<li>单源最短路<ul>
+<li>  正权图</li>
+<li>  负权图</li>
+</ul>
+</li>
+<li>多源汇最短路</li>
+</ul>
+</li>
+<li>难点<ul>
+<li>  抽象原问题到最短路问题</li>
+<li>建图</li>
+</ul>
+</li>
+<li>方法<ul>
+<li>朴素 Dijkstra<ul>
+<li>复杂度 $O(V^2)$</li>
+</ul>
+</li>
+<li>堆优化 Dijkstra<ul>
+<li>复杂度 $O(E\log V)$</li>
+</ul>
+</li>
+<li>Bellman-Ford 算法<ul>
+<li> 循环 $k \in [1, E]$ 次    -  此时的 dist 数组代表从初始点出发，经过不超过 k 条边的最短路径    -  如果一条最短路上有 $E$ 条边，则必有负环</li>
+<li> 每次循环遍历所有边，进行一次松弛操作</li>
+</ul>
+</li>
+<li>  SPFA</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">MiracleSNeko</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/11/acwing-note/">http://example.com/2021/10/11/acwing-note/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">算法笔记</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/10/17/weekly-contest-263/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">LeetCode 周赛 263</div></div></a></div><div class="next-post pull-right"><a href="/2021/10/10/weekly-contest-262/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">LeetCode 周赛 262</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">MiracleSNeko</div><div class="author-info__description">世界には今も確かに希望がありますよ。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AcWing-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">AcWing 算法基础课笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">基础算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">快速排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">归并排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%88%86"><span class="toc-number">1.1.3.</span> <span class="toc-text">二分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%B2%BE%E5%BA%A6"><span class="toc-number">1.1.4.</span> <span class="toc-text">高精度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%BC%80%E5%92%8C"><span class="toc-number">1.1.5.</span> <span class="toc-text">前缀和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%AE%E5%88%86"><span class="toc-number">1.1.6.</span> <span class="toc-text">差分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88"><span class="toc-number">1.1.7.</span> <span class="toc-text">双指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E5%8C%96"><span class="toc-number">1.1.8.</span> <span class="toc-text">离散化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6"><span class="toc-number">1.1.9.</span> <span class="toc-text">区间合并</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8"><span class="toc-number">1.2.1.</span> <span class="toc-text">链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%B0%83%E6%A0%88"><span class="toc-number">1.2.2.</span> <span class="toc-text">单调栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97"><span class="toc-number">1.2.3.</span> <span class="toc-text">单调队列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#KMP"><span class="toc-number">1.2.4.</span> <span class="toc-text">KMP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Trie-%E6%A0%91"><span class="toc-number">1.2.5.</span> <span class="toc-text">Trie 树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="toc-number">1.2.6.</span> <span class="toc-text">并查集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E5%A0%86"><span class="toc-number">1.2.7.</span> <span class="toc-text">二叉堆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%A3%E5%88%97%E8%A1%A8"><span class="toc-number">1.2.8.</span> <span class="toc-text">散列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA"><span class="toc-number">1.3.</span> <span class="toc-text">搜索与图论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2"><span class="toc-number">1.3.1.</span> <span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE"><span class="toc-number">1.3.2.</span> <span class="toc-text">图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.3.</span> <span class="toc-text">最短路问题</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/virtual-contest-185/" title="LeetCode 虚拟周赛 185"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 虚拟周赛 185"/></a><div class="content"><a class="title" href="/2021/11/17/virtual-contest-185/" title="LeetCode 虚拟周赛 185">LeetCode 虚拟周赛 185</a><time datetime="2021-11-17T15:18:03.000Z" title="Created 2021-11-17 23:18:03">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/15/virtual-contest-103/" title="LeetCode 虚拟周赛 103"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 虚拟周赛 103"/></a><div class="content"><a class="title" href="/2021/11/15/virtual-contest-103/" title="LeetCode 虚拟周赛 103">LeetCode 虚拟周赛 103</a><time datetime="2021-11-15T15:39:59.000Z" title="Created 2021-11-15 23:39:59">2021-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/14/biweekly-contest-65/" title="LeetCode 双周赛 65"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 双周赛 65"/></a><div class="content"><a class="title" href="/2021/11/14/biweekly-contest-65/" title="LeetCode 双周赛 65">LeetCode 双周赛 65</a><time datetime="2021-11-14T15:22:25.000Z" title="Created 2021-11-14 23:22:25">2021-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/14/weekly-contest-267/" title="LeetCode 周赛 263"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 周赛 263"/></a><div class="content"><a class="title" href="/2021/11/14/weekly-contest-267/" title="LeetCode 周赛 263">LeetCode 周赛 263</a><time datetime="2021-11-14T15:22:04.000Z" title="Created 2021-11-14 23:22:04">2021-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/25/saikr-contest-2021autumn/" title="saikr 2021秋季赛"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="saikr 2021秋季赛"/></a><div class="content"><a class="title" href="/2021/10/25/saikr-contest-2021autumn/" title="saikr 2021秋季赛">saikr 2021秋季赛</a><time datetime="2021-10-25T14:50:08.000Z" title="Created 2021-10-25 22:50:08">2021-10-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By MiracleSNeko</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer src="/live2d-widget/autoload.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

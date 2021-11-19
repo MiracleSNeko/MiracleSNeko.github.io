@@ -1,0 +1,294 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LeetCode 虚拟周赛 185 | Ar Blog rre MSNeko</title><meta name="keywords" content="LeetCode 周赛总结"><meta name="author" content="MiracleSNeko"><meta name="copyright" content="MiracleSNeko"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="LeetCode 虚拟周赛 185T1 1417. 重新格式化字符串   通过的用户数3297   尝试过的用户数3450   用户总通过次数3441   用户总提交次数6732   题目难度 Easy  给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。 请你将该字符串重新格式化，使得任意两个相邻字符的类型都不同。也就是说，字母后面应该跟着数字，而数字后面应该跟着字母。 请你返">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode 虚拟周赛 185">
+<meta property="og:url" content="http://example.com/2021/11/17/virtual-contest-185/index.html">
+<meta property="og:site_name" content="Ar Blog rre MSNeko">
+<meta property="og:description" content="LeetCode 虚拟周赛 185T1 1417. 重新格式化字符串   通过的用户数3297   尝试过的用户数3450   用户总通过次数3441   用户总提交次数6732   题目难度 Easy  给你一个混合了数字和字母的字符串 s，其中的字母均为小写英文字母。 请你将该字符串重新格式化，使得任意两个相邻字符的类型都不同。也就是说，字母后面应该跟着数字，而数字后面应该跟着字母。 请你返">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-11-17T15:18:03.000Z">
+<meta property="article:modified_time" content="2021-11-17T15:51:40.076Z">
+<meta property="article:author" content="MiracleSNeko">
+<meta property="article:tag" content="LeetCode 周赛总结">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/11/17/virtual-contest-185/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'LeetCode 虚拟周赛 185',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-17 23:51:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ar Blog rre MSNeko</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">LeetCode 虚拟周赛 185</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-11-17T15:18:03.000Z" title="Created 2021-11-17 23:18:03">2021-11-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-11-17T15:51:40.076Z" title="Updated 2021-11-17 23:51:40">2021-11-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="LeetCode 虚拟周赛 185"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr>
+<h1 id="LeetCode-虚拟周赛-185"><a href="#LeetCode-虚拟周赛-185" class="headerlink" title="LeetCode 虚拟周赛 185"></a>LeetCode 虚拟周赛 185</h1><h2 id="T1-1417-重新格式化字符串"><a href="#T1-1417-重新格式化字符串" class="headerlink" title="T1 1417. 重新格式化字符串"></a>T1 1417. 重新格式化字符串</h2><ul>
+<li>  <strong>通过的用户数</strong>3297</li>
+<li>  <strong>尝试过的用户数</strong>3450</li>
+<li>  <strong>用户总通过次数</strong>3441</li>
+<li>  <strong>用户总提交次数</strong>6732</li>
+<li>  <strong>题目难度</strong> <strong>Easy</strong></li>
+</ul>
+<p>给你一个混合了数字和字母的字符串 <code>s</code>，其中的字母均为小写英文字母。</p>
+<p>请你将该字符串重新格式化，使得任意两个相邻字符的类型都不同。也就是说，字母后面应该跟着数字，而数字后面应该跟着字母。</p>
+<p>请你返回 <strong>重新格式化后</strong> 的字符串；如果无法按要求重新格式化，则返回一个 <strong>空字符串</strong> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;a0b1c2&quot;</span><br><span class="line">输出：&quot;0a1b2c&quot;</span><br><span class="line">解释：&quot;0a1b2c&quot; 中任意两个相邻字符的类型都不同。 &quot;a0b1c2&quot;, &quot;0a1b2c&quot;, &quot;0c2a1b&quot; 也是满足题目要求的答案。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;leetcode&quot;</span><br><span class="line">输出：&quot;&quot;</span><br><span class="line">解释：&quot;leetcode&quot; 中只有字母，所以无法满足重新格式化的条件。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;1229857369&quot;</span><br><span class="line">输出：&quot;&quot;</span><br><span class="line">解释：&quot;1229857369&quot; 中只有数字，所以无法满足重新格式化的条件。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 4：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;covid2019&quot;</span><br><span class="line">输出：&quot;c2o0v1i9d&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 5：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;ab123&quot;</span><br><span class="line">输出：&quot;1a2b3&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li>  <code>1 &lt;= s.length &lt;= 500</code></li>
+<li>  <code>s</code> 仅由小写英文字母和/或数字组成。</li>
+</ul>
+<p><strong>提交：</strong></p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">impl</span> Solution &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">reformat</span></span>(s: <span class="built_in">String</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> ch = s.bytes().filter(|ch| ch.is_ascii_alphabetic()).collect::&lt;<span class="built_in">Vec</span>&lt;_&gt;&gt;();</span><br><span class="line">        <span class="keyword">let</span> dig = s.bytes().filter(|ch| ch.is_ascii_digit()).collect::&lt;<span class="built_in">Vec</span>&lt;_&gt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (ch.len() <span class="keyword">as</span> <span class="built_in">i32</span> - dig.len() <span class="keyword">as</span> <span class="built_in">i32</span>).abs() &gt; <span class="number">1</span> &#123;</span><br><span class="line">            <span class="built_in">String</span>::from(<span class="string">&quot;&quot;</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">mut</span> s = (<span class="number">0</span>..ch.len().min(dig.len())).fold(<span class="built_in">Vec</span>::new(), |<span class="keyword">mut</span> s, i| &#123;</span><br><span class="line">                s.push(ch[i]);</span><br><span class="line">                s.push(dig[i]);</span><br><span class="line">                s</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">if</span> ch.len() &gt; dig.len() &#123;</span><br><span class="line">                s.push(ch[ch.len() - <span class="number">1</span>]);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> ch.len() &lt; dig.len() &#123;</span><br><span class="line">                s.insert(<span class="number">0</span>, dig[dig.len() - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">String</span>::from_utf8(s).unwrap()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="T2-1418-点菜展示表"><a href="#T2-1418-点菜展示表" class="headerlink" title="T2 1418. 点菜展示表"></a>T2 1418. 点菜展示表</h2><ul>
+<li>  <strong>通过的用户数</strong>1861</li>
+<li>  <strong>尝试过的用户数</strong>2042</li>
+<li>  <strong>用户总通过次数</strong>1885</li>
+<li>  <strong>用户总提交次数</strong>3567</li>
+<li>  <strong>题目难度</strong> <strong>Medium</strong></li>
+</ul>
+<p>给你一个数组 <code>orders</code>，表示客户在餐厅中完成的订单，确切地说， <code>orders[i]=[customerNamei,tableNumberi,foodItemi]</code> ，其中 <code>customerNamei</code> 是客户的姓名，<code>tableNumberi</code> 是客户所在餐桌的桌号，而 <code>foodItemi</code> 是客户点的餐品名称。</p>
+<p>请你返回该餐厅的 <strong>点菜展示表</strong> <em>。</em>在这张表中，表中第一行为标题，其第一列为餐桌桌号 “Table” ，后面每一列都是按字母顺序排列的餐品名称。接下来每一行中的项则表示每张餐桌订购的相应餐品数量，第一列应当填对应的桌号，后面依次填写下单的餐品数量。</p>
+<p>注意：客户姓名不是点菜展示表的一部分。此外，表中的数据行应该按餐桌桌号升序排列。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">输入：orders = [[&quot;David&quot;,&quot;3&quot;,&quot;Ceviche&quot;],[&quot;Corina&quot;,&quot;10&quot;,&quot;Beef Burrito&quot;],[&quot;David&quot;,&quot;3&quot;,&quot;Fried Chicken&quot;],[&quot;Carla&quot;,&quot;5&quot;,&quot;Water&quot;],[&quot;Carla&quot;,&quot;5&quot;,&quot;Ceviche&quot;],[&quot;Rous&quot;,&quot;3&quot;,&quot;Ceviche&quot;]]</span><br><span class="line">输出：[[&quot;Table&quot;,&quot;Beef Burrito&quot;,&quot;Ceviche&quot;,&quot;Fried Chicken&quot;,&quot;Water&quot;],[&quot;3&quot;,&quot;0&quot;,&quot;2&quot;,&quot;1&quot;,&quot;0&quot;],[&quot;5&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;1&quot;],[&quot;10&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;]] </span><br><span class="line">解释：</span><br><span class="line">点菜展示表如下所示：</span><br><span class="line">Table,Beef Burrito,Ceviche,Fried Chicken,Water</span><br><span class="line">3    ,0           ,2      ,1            ,0</span><br><span class="line">5    ,0           ,1      ,0            ,1</span><br><span class="line">10   ,1           ,0      ,0            ,0</span><br><span class="line">对于餐桌 3：David 点了 &quot;Ceviche&quot; 和 &quot;Fried Chicken&quot;，而 Rous 点了 &quot;Ceviche&quot;</span><br><span class="line">而餐桌 5：Carla 点了 &quot;Water&quot; 和 &quot;Ceviche&quot;</span><br><span class="line">餐桌 10：Corina 点了 &quot;Beef Burrito&quot; </span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：orders = [[&quot;James&quot;,&quot;12&quot;,&quot;Fried Chicken&quot;],[&quot;Ratesh&quot;,&quot;12&quot;,&quot;Fried Chicken&quot;],[&quot;Amadeus&quot;,&quot;12&quot;,&quot;Fried Chicken&quot;],[&quot;Adam&quot;,&quot;1&quot;,&quot;Canadian Waffles&quot;],[&quot;Brianna&quot;,&quot;1&quot;,&quot;Canadian Waffles&quot;]]</span><br><span class="line">输出：[[&quot;Table&quot;,&quot;Canadian Waffles&quot;,&quot;Fried Chicken&quot;],[&quot;1&quot;,&quot;2&quot;,&quot;0&quot;],[&quot;12&quot;,&quot;0&quot;,&quot;3&quot;]] </span><br><span class="line">解释：</span><br><span class="line">对于餐桌 1：Adam 和 Brianna 都点了 &quot;Canadian Waffles&quot;</span><br><span class="line">而餐桌 12：James, Ratesh 和 Amadeus 都点了 &quot;Fried Chicken&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：orders = [[&quot;Laura&quot;,&quot;2&quot;,&quot;Bean Burrito&quot;],[&quot;Jhon&quot;,&quot;2&quot;,&quot;Beef Burrito&quot;],[&quot;Melissa&quot;,&quot;2&quot;,&quot;Soda&quot;]]</span><br><span class="line">输出：[[&quot;Table&quot;,&quot;Bean Burrito&quot;,&quot;Beef Burrito&quot;,&quot;Soda&quot;],[&quot;2&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;]] </span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li>  <code>1 &lt;= orders.length &lt;= 5 * 10^4</code></li>
+<li>  <code>orders[i].length == 3</code></li>
+<li>  <code>1 &lt;= customerNamei.length, foodItemi.length &lt;= 20</code></li>
+<li>  <code>customerNamei</code> 和 <code>foodItemi</code> 由大小写英文字母及空格字符 <code>&#39; &#39;</code> 组成。</li>
+<li>  <code>tableNumberi</code> 是 <code>1</code> 到 <code>500</code> 范围内的整数。</li>
+</ul>
+<p><strong>题解：</strong></p>
+<blockquote>
+<p>  不难，就是恶心，写了半个小时困得扛不住就一键放弃了</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;List&lt;String&gt;&gt; displayTable(List&lt;List&lt;String&gt;&gt; orders) &#123;</span><br><span class="line">        //构造表头</span><br><span class="line">        List&lt;String&gt; header = orders.stream()</span><br><span class="line">                .map(order -&gt; order.get(2))</span><br><span class="line">                .distinct()</span><br><span class="line">                .sorted()</span><br><span class="line">                .collect(Collectors.toCollection(() -&gt; Stream.of(&quot;Table&quot;).collect(Collectors.toList())));</span><br><span class="line"></span><br><span class="line">        //填写数据</span><br><span class="line">        return orders.stream()</span><br><span class="line">                .collect(Collectors.groupingBy(</span><br><span class="line">                        order -&gt; Integer.valueOf(order.get(1)),</span><br><span class="line">                        (Supplier&lt;Map&lt;Integer, Map&lt;String, Integer&gt;&gt;&gt;) TreeMap::new,</span><br><span class="line">                        Collectors.groupingBy(order -&gt; order.get(2), Collectors.summingInt(e -&gt; 1)))</span><br><span class="line">                ).entrySet()</span><br><span class="line">                .stream()</span><br><span class="line">                .peek(entry -&gt; entry.getValue().put(&quot;Table&quot;, entry.getKey()))</span><br><span class="line">                .map(entry -&gt; header.stream()</span><br><span class="line">                        .map(column -&gt; entry.getValue().getOrDefault(column, 0).toString())</span><br><span class="line">                        .collect(Collectors.toList()))</span><br><span class="line">                .collect(Collectors.toCollection(() -&gt; Stream.of(header).collect(Collectors.toList())));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>  干脆出道手写 SQL 数据库得了</p>
+</blockquote>
+<h2 id="L3-1419-数青蛙"><a href="#L3-1419-数青蛙" class="headerlink" title="L3 1419. 数青蛙"></a>L3 1419. 数青蛙</h2><ul>
+<li>  <strong>通过的用户数</strong>1087</li>
+<li>  <strong>尝试过的用户数</strong>1882</li>
+<li>  <strong>用户总通过次数</strong>1105</li>
+<li>  <strong>用户总提交次数</strong>4362</li>
+<li>  <strong>题目难度</strong> <strong>Medium</strong></li>
+</ul>
+<p>给你一个字符串 <code>croakOfFrogs</code>，它表示不同青蛙发出的蛙鸣声（字符串 “croak” ）的组合。由于同一时间可以有多只青蛙呱呱作响，所以 <code>croakOfFrogs</code> 中会混合多个 “croak” <em>。</em>请你返回模拟字符串中所有蛙鸣所需不同青蛙的最少数目。</p>
+<p><strong>注意：</strong>要想发出蛙鸣 “croak”，青蛙必须 <strong>依序</strong> 输出 <code>‘c’, ’r’, ’o’, ’a’, ’k’</code> 这 5 个字母。如果没有输出全部五个字母，那么它就不会发出声音。</p>
+<p>如果字符串 <code>croakOfFrogs</code> 不是由若干有效的 “croak” 字符混合而成，请返回 <code>-1</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：croakOfFrogs = &quot;croakcroak&quot;</span><br><span class="line">输出：1 </span><br><span class="line">解释：一只青蛙 “呱呱” 两次</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：croakOfFrogs = &quot;crcoakroak&quot;</span><br><span class="line">输出：2 </span><br><span class="line">解释：最少需要两只青蛙，“呱呱” 声用黑体标注</span><br><span class="line">第一只青蛙 &quot;crcoakroak&quot;</span><br><span class="line">第二只青蛙 &quot;crcoakroak&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：croakOfFrogs = &quot;croakcrook&quot;</span><br><span class="line">输出：-1</span><br><span class="line">解释：给出的字符串不是 &quot;croak&quot; 的有效组合。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 4：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：croakOfFrogs = &quot;croakcroa&quot;</span><br><span class="line">输出：-1</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li>  <code>1 &lt;= croakOfFrogs.length &lt;= 10^5</code></li>
+<li>  字符串中的字符只有 <code>&#39;c&#39;</code>, <code>&#39;r&#39;</code>, <code>&#39;o&#39;</code>, <code>&#39;a&#39;</code> 或者 <code>&#39;k&#39;</code></li>
+</ul>
+<p><strong>题解：</strong></p>
+<blockquote>
+<p>  状态机。记录在转移序列中的青蛙个数的最大值即可。如果状态转移任何一步出现问题，都应该返回 -1</p>
+</blockquote>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">impl</span> Solution &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">min_number_of_frogs</span></span>(croak_of_frogs: <span class="built_in">String</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> stat = [<span class="number">0</span>; <span class="number">4</span>];</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> ch <span class="keyword">in</span> croak_of_frogs.bytes() &#123;</span><br><span class="line">            <span class="keyword">match</span> ch &#123;</span><br><span class="line">                <span class="string">b&#x27;c&#x27;</span> =&gt; &#123;</span><br><span class="line">                    stat[<span class="number">0</span>] += <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="string">b&#x27;r&#x27;</span> =&gt; &#123;</span><br><span class="line">                    stat[<span class="number">0</span>] -= <span class="number">1</span>;</span><br><span class="line">                    stat[<span class="number">1</span>] += <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="string">b&#x27;o&#x27;</span> =&gt; &#123;</span><br><span class="line">                    stat[<span class="number">1</span>] -= <span class="number">1</span>;</span><br><span class="line">                    stat[<span class="number">2</span>] += <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="string">b&#x27;a&#x27;</span> =&gt; &#123;</span><br><span class="line">                    stat[<span class="number">2</span>] -= <span class="number">1</span>;</span><br><span class="line">                    stat[<span class="number">3</span>] += <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="string">b&#x27;k&#x27;</span> =&gt; &#123;</span><br><span class="line">                    stat[<span class="number">3</span>] -= <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                _ =&gt; <span class="built_in">unreachable!</span>()</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> stat.iter().filter(|&amp;&amp;i| i &lt; <span class="number">0</span>).count() != <span class="number">0</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            cnt = cnt.max(stat.iter().sum::&lt;<span class="built_in">i32</span>&gt;());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> stat.iter().filter(|&amp;&amp;i| i != <span class="number">0</span>).count() != <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cnt</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="T4-1420-生成数组"><a href="#T4-1420-生成数组" class="headerlink" title="T4 1420. 生成数组"></a>T4 1420. 生成数组</h2><ul>
+<li>  <strong>通过的用户数</strong>181</li>
+<li>  <strong>尝试过的用户数</strong>292</li>
+<li>  <strong>用户总通过次数</strong>200</li>
+<li>  <strong>用户总提交次数</strong>417</li>
+<li>  <strong>题目难度</strong> <strong>Hard</strong></li>
+</ul>
+<p>给你三个整数 <code>n</code>、<code>m</code> 和 <code>k</code> 。下图描述的算法用于找出正整数数组中最大的元素。</p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2020/04/19/e.png" alt="img"></p>
+<p>请你生成一个具有下述属性的数组 <code>arr</code> ：</p>
+<ul>
+<li>  <code>arr</code> 中有 <code>n</code> 个整数。</li>
+<li>  <code>1 &lt;= arr[i] &lt;= m</code> 其中 <code>(0 &lt;= i &lt; n)</code> 。</li>
+<li>  将上面提到的算法应用于 <code>arr</code> ，<code>search_cost</code> 的值等于 <code>k</code> 。</li>
+</ul>
+<p>返回上述条件下生成数组 <code>arr</code> 的 <strong>方法数</strong> ，由于答案可能会很大，所以 <strong>必须</strong> 对 <code>10^9 + 7</code> 取余。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 2, m = 3, k = 1</span><br><span class="line">输出：6</span><br><span class="line">解释：可能的数组分别为 [1, 1], [2, 1], [2, 2], [3, 1], [3, 2] [3, 3]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 5, m = 2, k = 3</span><br><span class="line">输出：0</span><br><span class="line">解释：没有数组可以满足上述条件</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 9, m = 1, k = 1</span><br><span class="line">输出：1</span><br><span class="line">解释：可能的数组只有 [1, 1, 1, 1, 1, 1, 1, 1, 1]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 4：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 50, m = 100, k = 25</span><br><span class="line">输出：34549172</span><br><span class="line">解释：不要忘了对 1000000007 取余</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 5：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 37, m = 17, k = 7</span><br><span class="line">输出：418930126</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li>  <code>1 &lt;= n &lt;= 50</code></li>
+<li>  <code>1 &lt;= m &lt;= 100</code></li>
+<li>  <code>0 &lt;= k &lt;= n</code></li>
+</ul>
+<p><strong>题解：</strong></p>
+<blockquote>
+<p>  [动态规划](<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/build-array-where-you-can-find-the-maximum-exactly-k-comparisons/solution/sheng-cheng-shu-zu-by-leetcode-solution-yswf/">生成数组 - 生成数组 - 力扣（LeetCode） (leetcode-cn.com)</a>)</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">MiracleSNeko</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2021/11/17/virtual-contest-185/">http://example.com/2021/11/17/virtual-contest-185/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/LeetCode-%E5%91%A8%E8%B5%9B%E6%80%BB%E7%BB%93/">LeetCode 周赛总结</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/11/15/virtual-contest-103/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">LeetCode 虚拟周赛 103</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2021/09/19/biweekly-contest-61/" title="LeetCode 双周赛 61"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-19</div><div class="title">LeetCode 双周赛 61</div></div></a></div><div><a href="/2021/10/06/biweekly-contest-62/" title="LeetCode 双周赛 62"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-06</div><div class="title">LeetCode 双周赛 62</div></div></a></div><div><a href="/2021/11/15/virtual-contest-103/" title="LeetCode 虚拟周赛 103"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-15</div><div class="title">LeetCode 虚拟周赛 103</div></div></a></div><div><a href="/2021/09/19/weekly-contest-259/" title="LeetCode 周赛 259"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-19</div><div class="title">LeetCode 周赛 259</div></div></a></div><div><a href="/2021/10/10/weekly-contest-262/" title="LeetCode 周赛 262"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-10</div><div class="title">LeetCode 周赛 262</div></div></a></div><div><a href="/2021/10/17/weekly-contest-263/" title="LeetCode 周赛 263"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-17</div><div class="title">LeetCode 周赛 263</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">MiracleSNeko</div><div class="author-info__description">世界には今も確かに希望がありますよ。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LeetCode-%E8%99%9A%E6%8B%9F%E5%91%A8%E8%B5%9B-185"><span class="toc-number">1.</span> <span class="toc-text">LeetCode 虚拟周赛 185</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#T1-1417-%E9%87%8D%E6%96%B0%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.1.</span> <span class="toc-text">T1 1417. 重新格式化字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T2-1418-%E7%82%B9%E8%8F%9C%E5%B1%95%E7%A4%BA%E8%A1%A8"><span class="toc-number">1.2.</span> <span class="toc-text">T2 1418. 点菜展示表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L3-1419-%E6%95%B0%E9%9D%92%E8%9B%99"><span class="toc-number">1.3.</span> <span class="toc-text">L3 1419. 数青蛙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T4-1420-%E7%94%9F%E6%88%90%E6%95%B0%E7%BB%84"><span class="toc-number">1.4.</span> <span class="toc-text">T4 1420. 生成数组</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/virtual-contest-185/" title="LeetCode 虚拟周赛 185"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 虚拟周赛 185"/></a><div class="content"><a class="title" href="/2021/11/17/virtual-contest-185/" title="LeetCode 虚拟周赛 185">LeetCode 虚拟周赛 185</a><time datetime="2021-11-17T15:18:03.000Z" title="Created 2021-11-17 23:18:03">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/15/virtual-contest-103/" title="LeetCode 虚拟周赛 103"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 虚拟周赛 103"/></a><div class="content"><a class="title" href="/2021/11/15/virtual-contest-103/" title="LeetCode 虚拟周赛 103">LeetCode 虚拟周赛 103</a><time datetime="2021-11-15T15:39:59.000Z" title="Created 2021-11-15 23:39:59">2021-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/14/biweekly-contest-65/" title="LeetCode 双周赛 65"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 双周赛 65"/></a><div class="content"><a class="title" href="/2021/11/14/biweekly-contest-65/" title="LeetCode 双周赛 65">LeetCode 双周赛 65</a><time datetime="2021-11-14T15:22:25.000Z" title="Created 2021-11-14 23:22:25">2021-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/14/weekly-contest-267/" title="LeetCode 周赛 263"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 周赛 263"/></a><div class="content"><a class="title" href="/2021/11/14/weekly-contest-267/" title="LeetCode 周赛 263">LeetCode 周赛 263</a><time datetime="2021-11-14T15:22:04.000Z" title="Created 2021-11-14 23:22:04">2021-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/25/saikr-contest-2021autumn/" title="saikr 2021秋季赛"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="saikr 2021秋季赛"/></a><div class="content"><a class="title" href="/2021/10/25/saikr-contest-2021autumn/" title="saikr 2021秋季赛">saikr 2021秋季赛</a><time datetime="2021-10-25T14:50:08.000Z" title="Created 2021-10-25 22:50:08">2021-10-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By MiracleSNeko</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer src="/live2d-widget/autoload.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

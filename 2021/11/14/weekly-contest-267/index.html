@@ -1,0 +1,334 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LeetCode 周赛 263 | Ar Blog rre MSNeko</title><meta name="keywords" content="LeetCode 周赛总结"><meta name="author" content="MiracleSNeko"><meta name="copyright" content="MiracleSNeko"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="LeetCode 周赛 263   排名 用户名 得分 完成时间 题目1 (3) 题目2 (4) 题目3 (5) 题目4 (6)    1279 &#x2F; 4364 MiracleSNeko 8 1:10:34 0:07:14 2  1:00:34       以后不强行要求的时候再原地玩链表我就是伞兵  T1 5926. 买票需要的时间   通过的用户数3160   尝试过的用户数3336   用户">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode 周赛 263">
+<meta property="og:url" content="http://example.com/2021/11/14/weekly-contest-267/index.html">
+<meta property="og:site_name" content="Ar Blog rre MSNeko">
+<meta property="og:description" content="LeetCode 周赛 263   排名 用户名 得分 完成时间 题目1 (3) 题目2 (4) 题目3 (5) 题目4 (6)    1279 &#x2F; 4364 MiracleSNeko 8 1:10:34 0:07:14 2  1:00:34       以后不强行要求的时候再原地玩链表我就是伞兵  T1 5926. 买票需要的时间   通过的用户数3160   尝试过的用户数3336   用户">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-11-14T15:22:04.000Z">
+<meta property="article:modified_time" content="2021-11-17T05:21:51.680Z">
+<meta property="article:author" content="MiracleSNeko">
+<meta property="article:tag" content="LeetCode 周赛总结">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/11/14/weekly-contest-267/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'LeetCode 周赛 263',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-17 13:21:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ar Blog rre MSNeko</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">LeetCode 周赛 263</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-11-14T15:22:04.000Z" title="Created 2021-11-14 23:22:04">2021-11-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-11-17T05:21:51.680Z" title="Updated 2021-11-17 13:21:51">2021-11-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="LeetCode 周赛 263"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr>
+<h1 id="LeetCode-周赛-263"><a href="#LeetCode-周赛-263" class="headerlink" title="LeetCode 周赛 263"></a>LeetCode 周赛 263</h1><table>
+<thead>
+<tr>
+<th>排名</th>
+<th>用户名</th>
+<th>得分</th>
+<th>完成时间</th>
+<th><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-267/problems/time-needed-to-buy-tickets/">题目1 (3)</a></th>
+<th><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-267/problems/reverse-nodes-in-even-length-groups/">题目2 (4)</a></th>
+<th><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-267/problems/decode-the-slanted-ciphertext/">题目3 (5)</a></th>
+<th><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-267/problems/process-restricted-friend-requests/">题目4 (6)</a></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1279 / 4364</td>
+<td>MiracleSNeko</td>
+<td>8</td>
+<td>1:10:34</td>
+<td>0:07:14 2</td>
+<td></td>
+<td>1:00:34</td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>  以后不强行要求的时候再原地玩链表我就是伞兵</p>
+</blockquote>
+<h2 id="T1-5926-买票需要的时间"><a href="#T1-5926-买票需要的时间" class="headerlink" title="T1 5926. 买票需要的时间"></a>T1 5926. 买票需要的时间</h2><ul>
+<li>  <strong>通过的用户数</strong>3160</li>
+<li>  <strong>尝试过的用户数</strong>3336</li>
+<li>  <strong>用户总通过次数</strong>3204</li>
+<li>  <strong>用户总提交次数</strong>5384</li>
+<li>  <strong>题目难度</strong> <strong>Easy</strong></li>
+</ul>
+<p>有 <code>n</code> 个人前来排队买票，其中第 <code>0</code> 人站在队伍 <strong>最前方</strong> ，第 <code>(n - 1)</code> 人站在队伍 <strong>最后方</strong> 。</p>
+<p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>tickets</code> ，数组长度为 <code>n</code> ，其中第 <code>i</code> 人想要购买的票数为 <code>tickets[i]</code> 。</p>
+<p>每个人买票都需要用掉 <strong>恰好 1 秒</strong> 。一个人 <strong>一次只能买一张票</strong> ，如果需要购买更多票，他必须走到 <strong>队尾</strong> 重新排队（<strong>瞬间</strong> 发生，不计时间）。如果一个人没有剩下需要买的票，那他将会 <strong>离开</strong> 队伍。</p>
+<p>返回位于位置 <code>k</code>（下标从 <strong>0</strong> 开始）的人完成买票需要的时间（以秒为单位）。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：tickets = [2,3,2], k = 2</span><br><span class="line">输出：6</span><br><span class="line">解释： </span><br><span class="line">- 第一轮，队伍中的每个人都买到一张票，队伍变为 [1, 2, 1] 。</span><br><span class="line">- 第二轮，队伍中的每个都又都买到一张票，队伍变为 [0, 1, 0] 。</span><br><span class="line">位置 2 的人成功买到 2 张票，用掉 3 + 3 = 6 秒。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：tickets = [5,1,1,1], k = 0</span><br><span class="line">输出：8</span><br><span class="line">解释：</span><br><span class="line">- 第一轮，队伍中的每个人都买到一张票，队伍变为 [4, 0, 0, 0] 。</span><br><span class="line">- 接下来的 4 轮，只有位置 0 的人在买票。</span><br><span class="line">位置 0 的人成功买到 5 张票，用掉 4 + 1 + 1 + 1 + 1 = 8 秒。 </span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li>  <code>n == tickets.length</code></li>
+<li>  <code>1 &lt;= n &lt;= 100</code></li>
+<li>  <code>1 &lt;= tickets[i] &lt;= 100</code></li>
+<li>  <code>0 &lt;= k &lt; n</code></li>
+</ul>
+<p><strong>提交：</strong></p>
+<blockquote>
+<p>  目标后面的 &gt;= 应该少算一次，吃 WA</p>
+</blockquote>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">impl</span> Solution &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">time_required_to_buy</span></span>(tickets: <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt;, k: <span class="built_in">i32</span>) -&gt; <span class="built_in">i32</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> kth = tickets[k <span class="keyword">as</span> <span class="built_in">usize</span>];</span><br><span class="line">        tickets.iter().filter(|&amp;&amp;i| i &lt; kth).sum::&lt;<span class="built_in">i32</span>&gt;() + kth * tickets.iter().filter(|&amp;&amp;i| i &gt;= kth).count() <span class="keyword">as</span> <span class="built_in">i32</span> - tickets.iter().enumerate().filter(|&amp;(id, i)| id &gt; k <span class="keyword">as</span> <span class="built_in">usize</span> &amp;&amp; *i &gt;= kth).count() <span class="keyword">as</span> <span class="built_in">i32</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="T2-5927-反转偶数长度组的节点"><a href="#T2-5927-反转偶数长度组的节点" class="headerlink" title="T2 5927. 反转偶数长度组的节点"></a>T2 5927. 反转偶数长度组的节点</h2><ul>
+<li>  <strong>通过的用户数</strong>1679</li>
+<li>  <strong>尝试过的用户数</strong>2097</li>
+<li>  <strong>用户总通过次数</strong>1699</li>
+<li>  <strong>用户总提交次数</strong>5004</li>
+<li>  <strong>题目难度****Medium</strong></li>
+</ul>
+<p>给你一个链表的头节点 <code>head</code> 。</p>
+<p>链表中的节点 <strong>按顺序</strong> 划分成若干 <strong>非空</strong> 组，这些非空组的长度构成一个自然数序列（<code>1, 2, 3, 4, ...</code>）。一个组的 <strong>长度</strong> 就是组中分配到的节点数目。换句话说：</p>
+<ul>
+<li>  节点 <code>1</code> 分配给第一组</li>
+<li>  节点 <code>2</code> 和 <code>3</code> 分配给第二组</li>
+<li>  节点 <code>4</code>、<code>5</code> 和 <code>6</code> 分配给第三组，以此类推</li>
+</ul>
+<p>注意，最后一组的长度可能小于或者等于 <code>1 + 倒数第二组的长度</code> 。</p>
+<p><strong>反转</strong> 每个 <strong>偶数</strong> 长度组中的节点，并返回修改后链表的头节点 <code>head</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/10/25/eg1.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [5,2,6,3,9,1,7,3,8,4]</span><br><span class="line">输出：[5,6,2,3,9,1,4,8,3,7]</span><br><span class="line">解释：</span><br><span class="line">- 第一组长度为 1 ，奇数，没有发生反转。</span><br><span class="line">- 第二组长度为 2 ，偶数，节点反转。</span><br><span class="line">- 第三组长度为 3 ，奇数，没有发生反转。</span><br><span class="line">- 最后一组长度为 4 ，偶数，节点反转。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/10/25/eg2.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [1,1,0,6]</span><br><span class="line">输出：[1,0,1,6]</span><br><span class="line">解释：</span><br><span class="line">- 第一组长度为 1 ，没有发生反转。</span><br><span class="line">- 第二组长度为 2 ，节点反转。</span><br><span class="line">- 最后一组长度为 1 ，没有发生反转。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/10/28/eg3.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [2,1]</span><br><span class="line">输出：[2,1]</span><br><span class="line">解释：</span><br><span class="line">- 第一组长度为 1 ，没有发生反转。</span><br><span class="line">- 最后一组长度为 1 ，没有发生反转。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 4：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [8]</span><br><span class="line">输出：[8]</span><br><span class="line">解释：只有一个长度为 1 的组，没有发生反转。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li>  链表中节点数目范围是 <code>[1, 105]</code></li>
+<li>  <code>0 &lt;= Node.val &lt;= 105</code></li>
+</ul>
+<p><strong>答案：</strong></p>
+<blockquote>
+<p>  等我抽空给 <code>Option&lt;Box&lt;ListNode&gt;&gt;</code> 写个封装和 IntoIter。我再原地就是伞兵</p>
+</blockquote>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="T3-5928-解码斜向换位密码"><a href="#T3-5928-解码斜向换位密码" class="headerlink" title="T3 5928. 解码斜向换位密码"></a>T3 5928. 解码斜向换位密码</h2><ul>
+<li>  <strong>通过的用户数</strong>1380</li>
+<li>  <strong>尝试过的用户数</strong>1575</li>
+<li>  <strong>用户总通过次数</strong>1412</li>
+<li>  <strong>用户总提交次数</strong>3238</li>
+<li>  <strong>题目难度</strong> <strong>Medium</strong></li>
+</ul>
+<p>字符串 <code>originalText</code> 使用 <strong>斜向换位密码</strong> ，经由 <strong>行数固定</strong> 为 <code>rows</code> 的矩阵辅助，加密得到一个字符串 <code>encodedText</code> 。</p>
+<p><code>originalText</code> 先按从左上到右下的方式放置到矩阵中。</p>
+<p><img src="https://assets.leetcode.com/uploads/2021/11/07/exa11.png" alt="img"></p>
+<p>先填充蓝色单元格，接着是红色单元格，然后是黄色单元格，以此类推，直到到达 <code>originalText</code> 末尾。箭头指示顺序即为单元格填充顺序。所有空单元格用 <code>&#39; &#39;</code> 进行填充。矩阵的列数需满足：用 <code>originalText</code> 填充之后，最右侧列 <strong>不为空</strong> 。</p>
+<p>接着按行将字符附加到矩阵中，构造 <code>encodedText</code> 。</p>
+<p><img src="https://assets.leetcode.com/uploads/2021/11/07/exa12.png" alt="img"></p>
+<p>先把蓝色单元格中的字符附加到 <code>encodedText</code> 中，接着是红色单元格，最后是黄色单元格。箭头指示单元格访问顺序。</p>
+<p>例如，如果 <code>originalText = &quot;cipher&quot;</code> 且 <code>rows = 3</code> ，那么我们可以按下述方法将其编码：</p>
+<p><img src="https://assets.leetcode.com/uploads/2021/10/25/desc2.png" alt="img"></p>
+<p>蓝色箭头标识 <code>originalText</code> 是如何放入矩阵中的，红色箭头标识形成 <code>encodedText</code> 的顺序。在上述例子中，<code>encodedText = &quot;ch  ie  pr&quot;</code> 。</p>
+<p>给你编码后的字符串 <code>encodedText</code> 和矩阵的行数 <code>rows</code> ，返回源字符串 <code>originalText</code> 。</p>
+<p><strong>注意：</strong><code>originalText</code> <strong>不</strong> 含任何尾随空格 <code>&#39; &#39;</code> 。生成的测试用例满足 <strong>仅存在一个</strong> 可能的 <code>originalText</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：encodedText = &quot;ch   ie   pr&quot;, rows = 3</span><br><span class="line">输出：&quot;cipher&quot;</span><br><span class="line">解释：此示例与问题描述中的例子相同。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/10/26/exam1.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：encodedText = &quot;iveo    eed   l te   olc&quot;, rows = 4</span><br><span class="line">输出：&quot;i love leetcode&quot;</span><br><span class="line">解释：上图标识用于编码 originalText 的矩阵。 </span><br><span class="line">蓝色箭头展示如何从 encodedText 找到 originalText 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/10/26/eg2.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：encodedText = &quot;coding&quot;, rows = 1</span><br><span class="line">输出：&quot;coding&quot;</span><br><span class="line">解释：由于只有 1 行，所以 originalText 和 encodedText 是相同的。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 4：</strong></p>
+<p><img src="https://assets.leetcode.com/uploads/2021/10/26/exam3.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：encodedText = &quot; b  ac&quot;, rows = 2</span><br><span class="line">输出：&quot; abc&quot;</span><br><span class="line">解释：originalText 不能含尾随空格，但它可能会有一个或者多个前置空格。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li>  <code>0 &lt;= encodedText.length &lt;= 106</code></li>
+<li>  <code>encodedText</code> 仅由小写英文字母和 <code>&#39; &#39;</code> 组成</li>
+<li>  <code>encodedText</code> 是对某个 <strong>不含</strong> 尾随空格的 <code>originalText</code> 的一个有效编码</li>
+<li>  <code>1 &lt;= rows &lt;= 1000</code></li>
+<li>  生成的测试用例满足 <strong>仅存在一个</strong> 可能的 <code>originalText</code></li>
+</ul>
+<p><strong>提交：</strong></p>
+<blockquote>
+<p>  推下公式很容易发现，rows 个一组，每组两个相邻字母隔着 cols + 1，去掉末尾空格就行了</p>
+</blockquote>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">impl</span> Solution &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">decode_ciphertext</span></span>(encoded_text: <span class="built_in">String</span>, rows: <span class="built_in">i32</span>) -&gt; <span class="built_in">String</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> rows == <span class="number">1</span> &#123;</span><br><span class="line">            encoded_text</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> rows = rows <span class="keyword">as</span> <span class="built_in">usize</span>;</span><br><span class="line">            <span class="keyword">let</span> cols = encoded_text.len() / rows;</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">mut</span> text = <span class="built_in">Vec</span>::&lt;<span class="built_in">u8</span>&gt;::new();</span><br><span class="line">            <span class="keyword">let</span> enc = encoded_text.bytes().collect::&lt;<span class="built_in">Vec</span>&lt;_&gt;&gt;();</span><br><span class="line">            <span class="keyword">let</span> len = enc.len();</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">mut</span> i = <span class="number">0usize</span>;</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">mut</span> r = <span class="number">0usize</span>;</span><br><span class="line">            <span class="keyword">while</span> i + r * (cols + <span class="number">1</span>) &lt; len &#123;</span><br><span class="line">                text.push(enc[i + r * (cols + <span class="number">1</span>)]);</span><br><span class="line">                i += (r + <span class="number">1</span>) / rows;</span><br><span class="line">                r = (r + <span class="number">1</span>) % rows;</span><br><span class="line">            &#125;</span><br><span class="line">            text = text.into_iter().rev().skip_while(|&amp;ch| ch == <span class="string">b&#x27; &#x27;</span>).collect();</span><br><span class="line">            text = text.into_iter().rev().collect();</span><br><span class="line">            <span class="built_in">String</span>::from_utf8(text).unwrap_or(<span class="built_in">String</span>::from(<span class="string">&quot;&quot;</span>))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="T4-5929-处理含限制条件的好友请求"><a href="#T4-5929-处理含限制条件的好友请求" class="headerlink" title="T4 5929. 处理含限制条件的好友请求"></a>T4 5929. 处理含限制条件的好友请求</h2><ul>
+<li>  <strong>通过的用户数</strong>452</li>
+<li>  <strong>尝试过的用户数</strong>663</li>
+<li>  <strong>用户总通过次数</strong>493</li>
+<li>  <strong>用户总提交次数</strong>1216</li>
+<li>  <strong>题目难度</strong> <strong>Hard</strong></li>
+</ul>
+<p>给你一个整数 <code>n</code> ，表示网络上的用户数目。每个用户按从 <code>0</code> 到 <code>n - 1</code> 进行编号。</p>
+<p>给你一个下标从 <strong>0</strong> 开始的二维整数数组 <code>restrictions</code> ，其中 <code>restrictions[i] = [xi, yi]</code> 意味着用户 <code>xi</code> 和用户 <code>yi</code> <strong>不能</strong> 成为 <strong>朋友</strong> ，不管是 <strong>直接</strong> 还是通过其他用户 <strong>间接</strong> 。</p>
+<p>最初，用户里没有人是其他用户的朋友。给你一个下标从 <strong>0</strong> 开始的二维整数数组 <code>requests</code> 表示好友请求的列表，其中 <code>requests[j] = [uj, vj]</code> 是用户 <code>uj</code> 和用户 <code>vj</code> 之间的一条好友请求。</p>
+<p>如果 <code>uj</code> 和 <code>vj</code> 可以成为 <strong>朋友</strong> ，那么好友请求将会 <strong>成功</strong> 。每个好友请求都会按列表中给出的顺序进行处理（即，<code>requests[j]</code> 会在 <code>requests[j + 1]</code> 前）。一旦请求成功，那么对所有未来的好友请求而言， <code>uj</code> 和 <code>vj</code> 将会 <strong>成为直接朋友 。</strong></p>
+<p>返回一个 <strong>布尔数组</strong> <code>result</code> ，其中元素遵循此规则：如果第 <code>j</code> 个好友请求 <strong>成功</strong> ，那么 <code>result[j]</code> 就是 <code>true</code> ；否则，为 <code>false</code> 。</p>
+<p><strong>注意：</strong>如果 <code>uj</code> 和 <code>vj</code> 已经是直接朋友，那么他们之间的请求将仍然 <strong>成功</strong> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 3, restrictions = [[0,1]], requests = [[0,2],[2,1]]</span><br><span class="line">输出：[true,false]</span><br><span class="line">解释：</span><br><span class="line">请求 0 ：用户 0 和 用户 2 可以成为朋友，所以他们成为直接朋友。 </span><br><span class="line">请求 1 ：用户 2 和 用户 1 不能成为朋友，因为这会使 用户 0 和 用户 1 成为间接朋友 (1--2--0) 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 3, restrictions = [[0,1]], requests = [[1,2],[0,2]]</span><br><span class="line">输出：[true,false]</span><br><span class="line">解释：</span><br><span class="line">请求 0 ：用户 1 和 用户 2 可以成为朋友，所以他们成为直接朋友。 </span><br><span class="line">请求 1 ：用户 0 和 用户 2 不能成为朋友，因为这会使 用户 0 和 用户 1 成为间接朋友 (0--2--1) 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 5, restrictions = [[0,1],[1,2],[2,3]], requests = [[0,4],[1,2],[3,1],[3,4]]</span><br><span class="line">输出：[true,false,true,false]</span><br><span class="line">解释：</span><br><span class="line">请求 0 ：用户 0 和 用户 4 可以成为朋友，所以他们成为直接朋友。 </span><br><span class="line">请求 1 ：用户 1 和 用户 2 不能成为朋友，因为他们之间存在限制。</span><br><span class="line">请求 2 ：用户 3 和 用户 1 可以成为朋友，所以他们成为直接朋友。 </span><br><span class="line">请求 3 ：用户 3 和 用户 4 不能成为朋友，因为这会使 用户 0 和 用户 1 成为间接朋友 (0--4--3--1) 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li>  <code>2 &lt;= n &lt;= 1000</code></li>
+<li>  <code>0 &lt;= restrictions.length &lt;= 1000</code></li>
+<li>  <code>restrictions[i].length == 2</code></li>
+<li>  <code>0 &lt;= xi, yi &lt;= n - 1</code></li>
+<li>  <code>xi != yi</code></li>
+<li>  <code>1 &lt;= requests.length &lt;= 1000</code></li>
+<li>  <code>requests[j].length == 2</code></li>
+<li>  <code>0 &lt;= uj, vj &lt;= n - 1</code></li>
+<li>  <code>uj != vj</code></li>
+</ul>
+<p><strong>思路：</strong></p>
+<p>并查集。吃饭去了没多想就没写，抽空补上。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">MiracleSNeko</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2021/11/14/weekly-contest-267/">http://example.com/2021/11/14/weekly-contest-267/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/LeetCode-%E5%91%A8%E8%B5%9B%E6%80%BB%E7%BB%93/">LeetCode 周赛总结</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/11/14/biweekly-contest-65/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">LeetCode 双周赛 65</div></div></a></div><div class="next-post pull-right"><a href="/2021/10/25/saikr-contest-2021autumn/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">saikr 2021秋季赛</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2021/09/19/biweekly-contest-61/" title="LeetCode 双周赛 61"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-19</div><div class="title">LeetCode 双周赛 61</div></div></a></div><div><a href="/2021/10/06/biweekly-contest-62/" title="LeetCode 双周赛 62"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-06</div><div class="title">LeetCode 双周赛 62</div></div></a></div><div><a href="/2021/11/15/virtual-contest-103/" title="LeetCode 虚拟周赛 103"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-15</div><div class="title">LeetCode 虚拟周赛 103</div></div></a></div><div><a href="/2021/09/19/weekly-contest-259/" title="LeetCode 周赛 259"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-19</div><div class="title">LeetCode 周赛 259</div></div></a></div><div><a href="/2021/10/10/weekly-contest-262/" title="LeetCode 周赛 262"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-10</div><div class="title">LeetCode 周赛 262</div></div></a></div><div><a href="/2021/10/17/weekly-contest-263/" title="LeetCode 周赛 263"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-17</div><div class="title">LeetCode 周赛 263</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">MiracleSNeko</div><div class="author-info__description">世界には今も確かに希望がありますよ。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LeetCode-%E5%91%A8%E8%B5%9B-263"><span class="toc-number">1.</span> <span class="toc-text">LeetCode 周赛 263</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#T1-5926-%E4%B9%B0%E7%A5%A8%E9%9C%80%E8%A6%81%E7%9A%84%E6%97%B6%E9%97%B4"><span class="toc-number">1.1.</span> <span class="toc-text">T1 5926. 买票需要的时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T2-5927-%E5%8F%8D%E8%BD%AC%E5%81%B6%E6%95%B0%E9%95%BF%E5%BA%A6%E7%BB%84%E7%9A%84%E8%8A%82%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">T2 5927. 反转偶数长度组的节点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T3-5928-%E8%A7%A3%E7%A0%81%E6%96%9C%E5%90%91%E6%8D%A2%E4%BD%8D%E5%AF%86%E7%A0%81"><span class="toc-number">1.3.</span> <span class="toc-text">T3 5928. 解码斜向换位密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T4-5929-%E5%A4%84%E7%90%86%E5%90%AB%E9%99%90%E5%88%B6%E6%9D%A1%E4%BB%B6%E7%9A%84%E5%A5%BD%E5%8F%8B%E8%AF%B7%E6%B1%82"><span class="toc-number">1.4.</span> <span class="toc-text">T4 5929. 处理含限制条件的好友请求</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/virtual-contest-185/" title="LeetCode 虚拟周赛 185"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 虚拟周赛 185"/></a><div class="content"><a class="title" href="/2021/11/17/virtual-contest-185/" title="LeetCode 虚拟周赛 185">LeetCode 虚拟周赛 185</a><time datetime="2021-11-17T15:18:03.000Z" title="Created 2021-11-17 23:18:03">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/15/virtual-contest-103/" title="LeetCode 虚拟周赛 103"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 虚拟周赛 103"/></a><div class="content"><a class="title" href="/2021/11/15/virtual-contest-103/" title="LeetCode 虚拟周赛 103">LeetCode 虚拟周赛 103</a><time datetime="2021-11-15T15:39:59.000Z" title="Created 2021-11-15 23:39:59">2021-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/14/biweekly-contest-65/" title="LeetCode 双周赛 65"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 双周赛 65"/></a><div class="content"><a class="title" href="/2021/11/14/biweekly-contest-65/" title="LeetCode 双周赛 65">LeetCode 双周赛 65</a><time datetime="2021-11-14T15:22:25.000Z" title="Created 2021-11-14 23:22:25">2021-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/14/weekly-contest-267/" title="LeetCode 周赛 263"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 周赛 263"/></a><div class="content"><a class="title" href="/2021/11/14/weekly-contest-267/" title="LeetCode 周赛 263">LeetCode 周赛 263</a><time datetime="2021-11-14T15:22:04.000Z" title="Created 2021-11-14 23:22:04">2021-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/25/saikr-contest-2021autumn/" title="saikr 2021秋季赛"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="saikr 2021秋季赛"/></a><div class="content"><a class="title" href="/2021/10/25/saikr-contest-2021autumn/" title="saikr 2021秋季赛">saikr 2021秋季赛</a><time datetime="2021-10-25T14:50:08.000Z" title="Created 2021-10-25 22:50:08">2021-10-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By MiracleSNeko</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer src="/live2d-widget/autoload.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
