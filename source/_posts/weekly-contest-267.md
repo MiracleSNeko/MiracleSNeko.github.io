@@ -1,12 +1,12 @@
 ---
-title: LeetCode 周赛 263
+title: LeetCode 周赛 267
 date: 2021-11-14 23:22:04
 tags: LeetCode 周赛总结
 ---
 
 --------
 
-# LeetCode 周赛 263
+# LeetCode 周赛 267
 
 | 排名        | 用户名       | 得分 | 完成时间 | [题目1 (3)](https://leetcode-cn.com/contest/weekly-contest-267/problems/time-needed-to-buy-tickets/) | [题目2 (4)](https://leetcode-cn.com/contest/weekly-contest-267/problems/reverse-nodes-in-even-length-groups/) | [题目3 (5)](https://leetcode-cn.com/contest/weekly-contest-267/problems/decode-the-slanted-ciphertext/) | [题目4 (6)](https://leetcode-cn.com/contest/weekly-contest-267/problems/process-restricted-friend-requests/) |
 | ----------- | ------------ | ---- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
