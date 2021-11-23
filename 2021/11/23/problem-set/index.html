@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>某科学的算法错题集 | Ar Blog rre MSNeko</title><meta name="keywords" content="错题集"><meta name="author" content="MiracleSNeko"><meta name="copyright" content="MiracleSNeko"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="某科学的算法错题集   平时写完大呼 CNM 的题目集合  Lc 1093. 大样本统计我们对 0 到 255 之间的整数进行采样，并将结果存储在数组 count 中：count[k] 就是整数 k 的采样个数。 我们以 浮点数 数组的形式，分别返回样本的最小值、最大值、平均值、中位数和众数。其中，众数是保证唯一的。 我们先来回顾一下中位数的知识：    如果样本中的元素有序，并且元素数量为奇数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="某科学的算法错题集">
+<meta property="og:url" content="http://example.com/2021/11/23/problem-set/index.html">
+<meta property="og:site_name" content="Ar Blog rre MSNeko">
+<meta property="og:description" content="某科学的算法错题集   平时写完大呼 CNM 的题目集合  Lc 1093. 大样本统计我们对 0 到 255 之间的整数进行采样，并将结果存储在数组 count 中：count[k] 就是整数 k 的采样个数。 我们以 浮点数 数组的形式，分别返回样本的最小值、最大值、平均值、中位数和众数。其中，众数是保证唯一的。 我们先来回顾一下中位数的知识：    如果样本中的元素有序，并且元素数量为奇数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-11-23T14:42:43.000Z">
+<meta property="article:modified_time" content="2021-11-23T14:53:46.150Z">
+<meta property="article:author" content="MiracleSNeko">
+<meta property="article:tag" content="错题集">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/11/23/problem-set/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '某科学的算法错题集',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-23 22:53:46'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">5</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ar Blog rre MSNeko</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">某科学的算法错题集</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-11-23T14:42:43.000Z" title="Created 2021-11-23 22:42:43">2021-11-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-11-23T14:53:46.150Z" title="Updated 2021-11-23 22:53:46">2021-11-23</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="某科学的算法错题集"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr>
+<h1 id="某科学的算法错题集"><a href="#某科学的算法错题集" class="headerlink" title="某科学的算法错题集"></a>某科学的算法错题集</h1><blockquote>
+<p>  平时写完大呼 CNM 的题目集合</p>
+</blockquote>
+<h2 id="Lc-1093-大样本统计"><a href="#Lc-1093-大样本统计" class="headerlink" title="Lc 1093. 大样本统计"></a>Lc 1093. 大样本统计</h2><p>我们对 <code>0</code> 到 <code>255</code> 之间的整数进行采样，并将结果存储在数组 <code>count</code> 中：<code>count[k]</code> 就是整数 <code>k</code> 的采样个数。</p>
+<p>我们以 <strong>浮点数</strong> 数组的形式，分别返回样本的最小值、最大值、平均值、中位数和众数。其中，众数是保证唯一的。</p>
+<p>我们先来回顾一下中位数的知识：</p>
+<ul>
+<li>  如果样本中的元素有序，并且元素数量为奇数时，中位数为最中间的那个元素；</li>
+<li>  如果样本中的元素有序，并且元素数量为偶数时，中位数为中间的两个元素的平均值。</li>
+</ul>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：count = [0,1,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]</span><br><span class="line">输出：[1.00000,3.00000,2.37500,2.50000,3.00000]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：count = [0,4,3,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]</span><br><span class="line">输出：[1.00000,4.00000,2.18182,2.00000,1.00000]</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ol>
+<li> <code>count.length == 256</code></li>
+<li> <code>1 &lt;= sum(count) &lt;= 10^9</code></li>
+<li> 计数表示的众数是唯一的</li>
+<li> 答案与真实值误差在 <code>10^-5</code> 以内就会被视为正确答案</li>
+</ol>
+<p><strong>笔记：</strong></p>
+<p>其他几个数都好求，麻烦在中位数上。如果通过判断当前的 <code>sum</code> 值和 <code>len/2</code> 之间的关系，需要判断奇偶数等多种情况，因此用 <code>sum &lt;&lt; 1</code> 和 <code>len</code> 之间直接比较即可，这样只需要处理一种特殊情况。</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">impl</span> Solution &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">sample_stats</span></span>(count: <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt;) -&gt; <span class="built_in">Vec</span>&lt;<span class="built_in">f64</span>&gt; &#123;</span><br><span class="line">        <span class="keyword">let</span> count = count.into_iter().enumerate().filter(|pair| pair.<span class="number">1</span> != <span class="number">0</span>).collect::&lt;<span class="built_in">Vec</span>&lt;_&gt;&gt;();</span><br><span class="line">        <span class="keyword">let</span> max = count.iter().max_by_key(|i| i.<span class="number">0</span>).unwrap().<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">let</span> min = count.iter().min_by_key(|i| i.<span class="number">0</span>).unwrap().<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">let</span> mode = count.iter().max_by_key(|i| i.<span class="number">1</span>).unwrap().<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">let</span> (sum, len) = count.iter().fold((<span class="number">0</span>., <span class="number">0</span>), |(sum, len), p| (sum + p.<span class="number">0</span> <span class="keyword">as</span> <span class="built_in">f64</span> * p.<span class="number">1</span> <span class="keyword">as</span> <span class="built_in">f64</span>, len + p.<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> curr = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> mid = <span class="number">0</span>.;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..count.len() &#123;</span><br><span class="line">            curr += count[i].<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> curr &lt;&lt; <span class="number">1</span> &gt; len &#123;</span><br><span class="line">                mid = count[i].<span class="number">0</span> <span class="keyword">as</span> <span class="built_in">f64</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> curr &lt;&lt; <span class="number">1</span> == len &#123;</span><br><span class="line">                mid = (count[i].<span class="number">0</span> + count[i + <span class="number">1</span>].<span class="number">0</span>) <span class="keyword">as</span> <span class="built_in">f64</span> / <span class="number">2.0</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vec!</span>[min <span class="keyword">as</span> <span class="built_in">f64</span>, max <span class="keyword">as</span> <span class="built_in">f64</span>, sum / len <span class="keyword">as</span> <span class="built_in">f64</span>, mid, mode <span class="keyword">as</span> <span class="built_in">f64</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">MiracleSNeko</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2021/11/23/problem-set/">http://example.com/2021/11/23/problem-set/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%94%99%E9%A2%98%E9%9B%86/">错题集</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/11/21/weekly-contest-268/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">LeetCode 周赛 268</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">MiracleSNeko</div><div class="author-info__description">世界には今も確かに希望がありますよ。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">16</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%90%E7%A7%91%E5%AD%A6%E7%9A%84%E7%AE%97%E6%B3%95%E9%94%99%E9%A2%98%E9%9B%86"><span class="toc-number">1.</span> <span class="toc-text">某科学的算法错题集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Lc-1093-%E5%A4%A7%E6%A0%B7%E6%9C%AC%E7%BB%9F%E8%AE%A1"><span class="toc-number">1.1.</span> <span class="toc-text">Lc 1093. 大样本统计</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/23/problem-set/" title="某科学的算法错题集"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="某科学的算法错题集"/></a><div class="content"><a class="title" href="/2021/11/23/problem-set/" title="某科学的算法错题集">某科学的算法错题集</a><time datetime="2021-11-23T14:42:43.000Z" title="Created 2021-11-23 22:42:43">2021-11-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/21/weekly-contest-268/" title="LeetCode 周赛 268"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 周赛 268"/></a><div class="content"><a class="title" href="/2021/11/21/weekly-contest-268/" title="LeetCode 周赛 268">LeetCode 周赛 268</a><time datetime="2021-11-21T04:33:15.000Z" title="Created 2021-11-21 12:33:15">2021-11-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/virtual-contest-185/" title="LeetCode 虚拟周赛 185"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 虚拟周赛 185"/></a><div class="content"><a class="title" href="/2021/11/17/virtual-contest-185/" title="LeetCode 虚拟周赛 185">LeetCode 虚拟周赛 185</a><time datetime="2021-11-17T15:18:03.000Z" title="Created 2021-11-17 23:18:03">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/15/virtual-contest-103/" title="LeetCode 虚拟周赛 103"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 虚拟周赛 103"/></a><div class="content"><a class="title" href="/2021/11/15/virtual-contest-103/" title="LeetCode 虚拟周赛 103">LeetCode 虚拟周赛 103</a><time datetime="2021-11-15T15:39:59.000Z" title="Created 2021-11-15 23:39:59">2021-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/14/biweekly-contest-65/" title="LeetCode 双周赛 65"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 双周赛 65"/></a><div class="content"><a class="title" href="/2021/11/14/biweekly-contest-65/" title="LeetCode 双周赛 65">LeetCode 双周赛 65</a><time datetime="2021-11-14T15:22:25.000Z" title="Created 2021-11-14 23:22:25">2021-11-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By MiracleSNeko</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer src="/live2d-widget/autoload.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
