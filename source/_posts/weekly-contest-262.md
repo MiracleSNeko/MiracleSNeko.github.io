@@ -472,7 +472,142 @@ class Solution {
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ```
 
+>   单纯的折半查找，会 TLE 在第 175 个测试点
+
+```rust
+use std::collections::HashMap;
+
+macro_rules! lowbit {
+    ($x: expr) => {{
+        $x & (!$x + 1)
+    }};
+}
+
+impl Solution {
+    pub fn minimum_difference(mut left: Vec<i32>) -> i32 {
+        let n = left.len() / 2;
+        let sum = left.iter().sum::<i32>();
+        let right = left.split_off(n);
+        let (left, right) = (Solution::to_count(&left), Solution::to_count(&right));
+        left.iter().flat_map(|lhs| right.iter().map(move |rhs| (lhs, rhs)))
+            .filter(|(lhs, rhs)| lhs.0 + rhs.0 == n as i32)    
+            .fold(i32::MAX, |ans, (lhs, rhs)| {
+                lhs.1.iter().flat_map(|l| rhs.1.iter().map(move |r| (l, r)))
+                    .fold(ans, |ans, (l, r) | {
+                        i32::min(ans, (2 * l + 2 * r - sum).abs())
+                    })
+            })
+    }
+
+    fn to_count(vals: &Vec<i32>) -> HashMap<i32, Vec<i32>> {
+        let n = vals.len();
+        let mut map = HashMap::new();
+        for mask in 0..(1 << n) {
+            let key = Solution::count_mask(mask);
+            let val = Solution::sum_mask(vals, mask);
+            (*map.entry(key).or_insert(vec![])).push(val);
+        }
+        map
+    }
+
+    #[inline]
+    fn count_mask(mut mask: usize) -> i32 {
+        let mut cnt = 0;
+        while mask > 0 {
+            cnt += 1;
+            mask -= lowbit!(mask);
+        }
+        cnt
+    }
+
+    #[inline]
+    fn sum_mask(vals: &Vec<i32>, mask: usize) -> i32 {
+        let mut sum = 0;
+        for i in 0..vals.len() {
+            if mask & (1 << i) != 0 {
+                sum += vals[i];
+            }
+        }
+        sum
+    }
+}
+```
+
+>   实际上可以二分降低复杂度。对于匹配的左侧右侧状态，如果要使得 $|lsum + rsum|$ 最小，显然是取两者符号相反，且 $|lsum|$ 和 $|rsum|$ 最接近的一组数。对于给定的 $rsum$ ，在所有 $lsum$ 里找到第一个不小于 $-rsum$ 的 $lsum$，则此时的 $lsum + rsum$ 是当前的最小值。遍历所有 $rsum$ 即可得到答案。
+
+```rust
+use std::collections::HashMap;
+
+macro_rules! lowbit {
+    ($x: expr) => {{
+        $x & (!$x + 1)
+    }}
+}
+
+impl Solution {
+    pub fn minimum_difference(mut left: Vec<i32>) -> i32 {
+        let n = left.len() / 2;
+        let right = left.split_off(n);
+        let (left, right) = (Solution::to_count(&left), Solution::to_count(&right));
+        left.iter().flat_map(|lhs| right.iter().map(move |rhs| (lhs, rhs)))
+            .filter(|(lhs, rhs)| lhs.0 + rhs.0 == n as i32)    
+            .fold(i32::MAX, |ans, (lhs, rhs)| {
+                rhs.1.iter().fold(ans, |ans, r| {
+                    let pos = lhs.1.binary_search(&-r).unwrap_or_else(|err| err);
+                    if pos != lhs.1.len() { i32::min(ans, r + lhs.1[pos]) } else {ans}
+                })
+            })
+    }
+
+    fn to_count(vals: &Vec<i32>) -> HashMap<i32, Vec<i32>> {
+        let n = vals.len();
+        let mut map = HashMap::new();
+        for mask in 0..(1 << n) {
+            let key = Solution::count_mask(mask);
+            let val = Solution::sum_mask(vals, mask);
+            (*map.entry(key).or_insert(vec![])).push(val);
+        }
+        map.iter_mut().for_each(|(_, v)| v.sort());
+        map
+    }
+
+    #[inline]
+    fn count_mask(mut mask: usize) -> i32 {
+        let mut cnt = 0;
+        while mask > 0 {
+            cnt += 1;
+            mask -= lowbit!(mask);
+        }
+        cnt
+    }
+
+    #[inline]
+    fn sum_mask(vals: &Vec<i32>, mask: usize) -> i32 {
+        let mut sum = 0;
+        for i in 0..vals.len() {
+            if mask & (1 << i) != 0 {
+                sum += vals[i];
+            } else {
+                sum -= vals[i];
+            }
+        }
+        sum
+    }
+}
+```
 
 
 
+不一定对的复杂度分析：
+
+-   不使用二分，直接折半遍历
+    -   预处理阶段，左右各自遍历 $2^n$ 个 $mask$ 构造哈希表
+    -   遍历左侧的 $n$ 种情况，右侧的情况与之对应。设左侧取 $i$ 个数，右侧取 $n - i$ 个，则需要计算 $C_n^i C_n^{n - i}$ 次
+    -   总复杂度 $O(2^{n}) + O(\sum_{i = 0}^n C_n^i C_n^{n - i})$ = $O(2^{n+1}) + O(\frac{4^n\Gamma(n + \frac{1}{2})}{\sqrt{\pi} n!})$，$\lim_{n \to \infty} \frac{\Gamma(n + \frac{1}{2})}{\sqrt{\pi} n! \sqrt n} = 0.56419$，因此该解法的复杂度比不折半低一个$O(\sqrt n)$
+-   使用二分
+    -   预处理阶段，左右各遍历 $2^n$ 个 $mask$ 构造哈希表
+    -   遍历哈希表，每一侧取 $i$ 个数时的 $C_n^i$ 种情况需要排序，合计 $2 \sum_{i = 0}^n C_n^i\log{C_n^i}$
+    -   遍历左侧的 $n$ 种情况，设左侧取 $i$ 个数，二分查找右侧位置，需要计算 $C_n^i\log{C_n^{n-i}}$ 次
+    -   总复杂度 $O(2^{n}) + O(\sum_{i = 0}^n C_n^i\log{C_n^i})$ 
+    -   用 Wolfram Alpha 计算 $n = 30$ 时后两者的比值，结果为 $4.15e6$
 
