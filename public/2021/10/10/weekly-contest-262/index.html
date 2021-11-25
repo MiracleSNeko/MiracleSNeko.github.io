@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
 <meta property="article:published_time" content="2021-10-10T05:28:07.000Z">
-<meta property="article:modified_time" content="2021-11-25T16:27:20.581Z">
+<meta property="article:modified_time" content="2021-11-25T17:02:45.891Z">
 <meta property="article:author" content="MiracleSNeko">
 <meta property="article:tag" content="LeetCode 周赛总结">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2021-11-26 00:27:20'
+  postUpdate: '2021-11-26 01:02:45'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -147,7 +147,7 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">5</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ar Blog rre MSNeko</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">LeetCode 周赛 262</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-10-10T05:28:07.000Z" title="Created 2021-10-10 13:28:07">2021-10-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-11-25T16:27:20.581Z" title="Updated 2021-11-26 00:27:20">2021-11-26</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="LeetCode 周赛 262"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr>
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">5</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ar Blog rre MSNeko</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">LeetCode 周赛 262</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-10-10T05:28:07.000Z" title="Created 2021-10-10 13:28:07">2021-10-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-11-25T17:02:45.891Z" title="Updated 2021-11-26 01:02:45">2021-11-26</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="LeetCode 周赛 262"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr>
 <h1 id="LeetCode-周赛-262"><a href="#LeetCode-周赛-262" class="headerlink" title="LeetCode 周赛 262"></a>LeetCode 周赛 262</h1><table>
 <thead>
 <tr>
@@ -335,7 +335,8 @@
 <li>不使用二分，直接折半遍历<ul>
 <li>  预处理阶段，左右各自遍历 $2^n$ 个 $mask$ 构造哈希表</li>
 <li>  遍历左侧的 $n$ 种情况，右侧的情况与之对应。设左侧取 $i$ 个数，右侧取 $n - i$ 个，则需要计算 $C_n^i C_n^{n - i}$ 次</li>
-<li>  总复杂度 $O(2^{n}) + O(\sum_{i = 0}^n C_n^i C_n^{n - i})$ = $O(2^{n+1}) + O(\frac{4^n\Gamma(n + \frac{1}{2})}{\sqrt{\pi} n!})$，$\lim_{n \to \infty} \frac{\Gamma(n + \frac{1}{2})}{\sqrt{\pi} n! \sqrt n} = 0.56419$，因此该解法的复杂度比不折半低一个$O(\sqrt n)$</li>
+<li>  总复杂度 $O(2^{n}) + O(\sum_{i = 0}^n C_n^i C_n^{n - i})$ = $O(2^{n+1}) + O(\frac{4^n\Gamma(n + \frac{1}{2})}{\sqrt{\pi} n!})$ <del>，$\lim_{n \to \infty} \frac{\Gamma(n + \frac{1}{2})}{\sqrt{\pi} n! \sqrt n} = 0.56419$，因此该解法的复杂度比不折半低一个$O(\sqrt n)$？</del></li>
+<li>  用 Wolfram Alpha 计算 $n = 30$ 时后半部分的求和是 $1e9$ 的 $1e8$ 倍</li>
 </ul>
 </li>
 <li>使用二分<ul>
@@ -343,7 +344,7 @@
 <li>  遍历哈希表，每一侧取 $i$ 个数时的 $C_n^i$ 种情况需要排序，合计 $2 \sum_{i = 0}^n C_n^i\log{C_n^i}$</li>
 <li>  遍历左侧的 $n$ 种情况，设左侧取 $i$ 个数，二分查找右侧位置，需要计算 $C_n^i\log{C_n^{n-i}}$ 次</li>
 <li>  总复杂度 $O(2^{n}) + O(\sum_{i = 0}^n C_n^i\log{C_n^i})$ </li>
-<li>  用 Wolfram Alpha 计算 $n = 30$ 时后两者的比值，结果为 $4.15e6$</li>
+<li>  用 Wolfram Alpha 计算 $n = 30$ 时后两者的比值，结果为 $4.15e6$，后半部分是 $1e9$ 的约 28 倍</li>
 </ul>
 </li>
 </ul>

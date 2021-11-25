@@ -603,11 +603,12 @@ impl Solution {
 -   不使用二分，直接折半遍历
     -   预处理阶段，左右各自遍历 $2^n$ 个 $mask$ 构造哈希表
     -   遍历左侧的 $n$ 种情况，右侧的情况与之对应。设左侧取 $i$ 个数，右侧取 $n - i$ 个，则需要计算 $C_n^i C_n^{n - i}$ 次
-    -   总复杂度 $O(2^{n}) + O(\sum_{i = 0}^n C_n^i C_n^{n - i})$ = $O(2^{n+1}) + O(\frac{4^n\Gamma(n + \frac{1}{2})}{\sqrt{\pi} n!})$，$\lim_{n \to \infty} \frac{\Gamma(n + \frac{1}{2})}{\sqrt{\pi} n! \sqrt n} = 0.56419$，因此该解法的复杂度比不折半低一个$O(\sqrt n)$
+    -   总复杂度 $O(2^{n}) + O(\sum_{i = 0}^n C_n^i C_n^{n - i})$ = $O(2^{n+1}) + O(\frac{4^n\Gamma(n + \frac{1}{2})}{\sqrt{\pi} n!})$ ~~，$\lim_{n \to \infty} \frac{\Gamma(n + \frac{1}{2})}{\sqrt{\pi} n! \sqrt n} = 0.56419$，因此该解法的复杂度比不折半低一个$O(\sqrt n)$？~~
+    -   用 Wolfram Alpha 计算 $n = 30$ 时后半部分的求和是 $1e9$ 的 $1e8$ 倍
 -   使用二分
     -   预处理阶段，左右各遍历 $2^n$ 个 $mask$ 构造哈希表
     -   遍历哈希表，每一侧取 $i$ 个数时的 $C_n^i$ 种情况需要排序，合计 $2 \sum_{i = 0}^n C_n^i\log{C_n^i}$
     -   遍历左侧的 $n$ 种情况，设左侧取 $i$ 个数，二分查找右侧位置，需要计算 $C_n^i\log{C_n^{n-i}}$ 次
     -   总复杂度 $O(2^{n}) + O(\sum_{i = 0}^n C_n^i\log{C_n^i})$ 
-    -   用 Wolfram Alpha 计算 $n = 30$ 时后两者的比值，结果为 $4.15e6$
+    -   用 Wolfram Alpha 计算 $n = 30$ 时后两者的比值，结果为 $4.15e6$，后半部分是 $1e9$ 的约 28 倍
 
