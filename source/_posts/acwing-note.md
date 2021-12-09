@@ -508,7 +508,9 @@ tags: 算法笔记
                     for(int j = 0; primes[j] <= n / i; ++j)
                     {
                         vis[primes[j] * i] = true;
-                        if (i % primes[j] == 0) break;
+                        if (i % primes[j] == 0) 
+                            // 这里可以对当前primes[j]做点操作
+                            break;
                     }
                 }
             }
@@ -524,6 +526,42 @@ tags: 算法笔记
         -   算数基本定理
             -   $\forall N = \Pi p_i^{\alpha_i}, \sum \{v; N|v\} = \Pi\sum_{j = 0}^{\alpha_i} p_i^j$
         -   处理求和部分可以使用秦九韶算法优化
+    
+-   欧拉函数
+
+    -   定义
+
+        -   $1-N$ 中所有与 $N$ 互质的数的个数，记为 $\varphi(N)$
+        -   $\forall N = \Pi p_i^{\alpha_i},\ \varphi(N) = N\Pi(1 - \frac{1}{p_i})$
+        -   由容斥原理上式显然成立
+
+    -   素数筛法求欧拉函数
+
+        -   代码
+
+        ```c++
+        void euler_seive(int n)
+        {
+            primes.fill(0);
+            phi.fill(0);
+            phi[1] = 1;
+            for (int i = 2; i <= n; ++i) {
+                if (!vis[i]) {
+                    primes[tot++] = i;
+                    phi[i] = i - 1;
+                }
+                for (int j = 0; primes[j] <= n / i; ++j) {
+                    vis[primes[j] * i] = 1;
+                    if (i % primes[j] == 0) {
+                        phi[i * primes[j]] = primes[j] * phi[i];
+                        break;
+                    }
+                    phi[i * primes[j]] = phi[i] * (primes[j] - 1);
+                }
+            }
+        }
+        ```
+
 
 
 ### 组合数学
