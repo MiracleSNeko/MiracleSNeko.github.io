@@ -537,8 +537,18 @@ tags: 算法笔记
 
     -   素数筛法求欧拉函数
 
-        -   代码
+        -   在素数筛中分情况讨论
 
+            -   如果 $p_j$ 不是 $i$ 的质因子，那么对 $n = ip_j$ 有
+        
+                $$\varphi(n) = i p_j(1 - \frac{1}{p_j})\Pi_{i != j}(1 - \frac{1}{p_i}) = \varphi(i)(p_j - 1)$$
+        
+            -   如果 $p_j$ 是 $i$ 的质因子，那么 $n$ 和 $i$ 公式中连乘的部分显然相同
+        
+                $\varphi(n) = p_j\varphi(i)$
+        
+        -   代码
+        
         ```c++
         void euler_seive(int n)
         {
@@ -562,7 +572,57 @@ tags: 算法笔记
         }
         ```
 
+-   欧拉定理
+	- 公式
+      $$\forall a, n \in \mathbb{N}, \gcd(a, n) = 1 => a^{\varphi(n)} \equiv 1 (\mod n)$$
+    - 证明思路
+        - 构造完全剩余类
+    
+-   快速幂
 
+-   乘法逆元
+
+    -   存在逆元的充要条件是互质
+    
+    -   快速幂+费马小定理
+    
+        $a^{p-1} \equiv 1 (\mod p) => aa^{p-2} \equiv 1 (\mod p)$
+    
+    -   费马小定理+素数筛+扩展欧几里得
+    
+        -   公式
+    
+            $aa^{p-2}\equiv 1 (\mod p) => \exist b, s.t. aa^{p-2} + bp = 1$
+    
+        -   结合素数筛和逆元的结合性
+        
+    - 线性递推
+    
+      >   ```
+      >   let ka + b = p, then a = p / k, b = p % k
+      >   take b = p - ka in b * b^-1 === 1 mod p
+      >   we have (p - ka) * b=^-1 === 1 mod p => -kab^-1 === 1 mod p
+      >   then we have -k (p / k) (p % k)^-1 === 1 mod p
+      >   then k^-1 = -p/k (p % k) ^-1 = (p - p/k)(p % k)^-1
+      >   ```
+    
+-   裴蜀定理
+
+    $\forall a_i\in\mathbb{N}, \exist x_i, s.t. \sum a_ix_i = \gcd(a_i) $
+
+-   扩展欧几里得
+
+    -   在每次辗转相除时交换 $x$ 和 $y$
+    -   当 $b = 0$ 时显然有 $x = 1, y = 0$
+    -   递归结束后令 $y = y - x * (a / b)$
+    -   `exgcd` 求出基础解 $x_0, y_0$，有通解 $x = x_0 - \frac{b}{\gcd(a, b)}k, y = y_0 + \frac{a}{\gcd(a, b)}k$
+
+
+-   中国剩余定理
+
+    -   通解
+
+        $$x = \sum a_iM_iM_i^{-1}, M_i = \Pi_{j \neq i} m_i$$
 
 ### 组合数学
 
