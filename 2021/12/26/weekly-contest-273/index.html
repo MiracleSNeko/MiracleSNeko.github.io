@@ -1,0 +1,245 @@
+<!DOCTYPE html><html lang="zh-cn" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LeetCode 周赛 273 | Ar Blog rre MSNeko</title><meta name="keywords" content="LeetCode 周赛"><meta name="author" content="MiracleSNeko"><meta name="copyright" content="MiracleSNeko"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="LeetCode 周赛 273   排名 用户名 得分 完成时间 题目1 (3) 题目2 (4) 题目3 (5) 题目4 (6)    1777 &#x2F; 4367 MiracleSNeko 7 0:21:23 0:01:26 0:21:23        写 bugfree 代码的能力是目前最大的瓶颈  T3 5965. 相同元素的间隔之和   **User Accepted:**1331   **U">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode 周赛 273">
+<meta property="og:url" content="http://example.com/2021/12/26/weekly-contest-273/index.html">
+<meta property="og:site_name" content="Ar Blog rre MSNeko">
+<meta property="og:description" content="LeetCode 周赛 273   排名 用户名 得分 完成时间 题目1 (3) 题目2 (4) 题目3 (5) 题目4 (6)    1777 &#x2F; 4367 MiracleSNeko 7 0:21:23 0:01:26 0:21:23        写 bugfree 代码的能力是目前最大的瓶颈  T3 5965. 相同元素的间隔之和   **User Accepted:**1331   **U">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-12-26T09:26:21.000Z">
+<meta property="article:modified_time" content="2021-12-26T15:26:55.991Z">
+<meta property="article:author" content="MiracleSNeko">
+<meta property="article:tag" content="LeetCode 周赛">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/12/26/weekly-contest-273/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'LeetCode 周赛 273',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-12-26 23:26:55'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">6</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ar Blog rre MSNeko</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">LeetCode 周赛 273</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-12-26T09:26:21.000Z" title="Created 2021-12-26 17:26:21">2021-12-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-12-26T15:26:55.991Z" title="Updated 2021-12-26 23:26:55">2021-12-26</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="LeetCode 周赛 273"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="LeetCode-周赛-273"><a href="#LeetCode-周赛-273" class="headerlink" title="LeetCode 周赛 273"></a>LeetCode 周赛 273</h1><table>
+<thead>
+<tr>
+<th>排名</th>
+<th>用户名</th>
+<th>得分</th>
+<th>完成时间</th>
+<th><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-273/problems/a-number-after-a-double-reversal/">题目1 (3)</a></th>
+<th><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-273/problems/execution-of-all-suffix-instructions-staying-in-a-grid/">题目2 (4)</a></th>
+<th><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-273/problems/intervals-between-identical-elements/">题目3 (5)</a></th>
+<th><a target="_blank" rel="noopener" href="https://leetcode-cn.com/contest/weekly-contest-273/problems/recover-the-original-array/">题目4 (6)</a></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1777 / 4367</td>
+<td>MiracleSNeko</td>
+<td>7</td>
+<td>0:21:23</td>
+<td>0:01:26</td>
+<td>0:21:23</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>  写 bugfree 代码的能力是目前最大的瓶颈</p>
+</blockquote>
+<h2 id="T3-5965-相同元素的间隔之和"><a href="#T3-5965-相同元素的间隔之和" class="headerlink" title="T3 5965. 相同元素的间隔之和"></a>T3 5965. 相同元素的间隔之和</h2><ul>
+<li>  **User Accepted:**1331</li>
+<li>  **User Tried:**2930</li>
+<li>  **Total Accepted:**1377</li>
+<li>  **Total Submissions:**6371</li>
+<li>  <strong>Difficulty:</strong> <strong>Medium</strong></li>
+</ul>
+<p>给你一个下标从 <strong>0</strong> 开始、由 <code>n</code> 个整数组成的数组 <code>arr</code> 。</p>
+<p><code>arr</code> 中两个元素的 <strong>间隔</strong> 定义为它们下标之间的 <strong>绝对差</strong> 。更正式地，<code>arr[i]</code> 和 <code>arr[j]</code> 之间的间隔是 <code>|i - j|</code> 。</p>
+<p>返回一个长度为 <code>n</code> 的数组 <code>intervals</code> ，其中 <code>intervals[i]</code> 是 <code>arr[i]</code> 和 <code>arr</code> 中每个相同元素（与 <code>arr[i]</code> 的值相同）的 <strong>间隔之和</strong> <em>。</em></p>
+<p><strong>注意：</strong><code>|x|</code> 是 <code>x</code> 的绝对值。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [2,1,3,1,2,3,3]</span><br><span class="line">输出：[4,2,7,2,4,4,5]</span><br><span class="line">解释：</span><br><span class="line">- 下标 0 ：另一个 2 在下标 4 ，|0 - 4| = 4</span><br><span class="line">- 下标 1 ：另一个 1 在下标 3 ，|1 - 3| = 2</span><br><span class="line">- 下标 2 ：另两个 3 在下标 5 和 6 ，|2 - 5| + |2 - 6| = 7</span><br><span class="line">- 下标 3 ：另一个 1 在下标 1 ，|3 - 1| = 2</span><br><span class="line">- 下标 4 ：另一个 2 在下标 0 ，|4 - 0| = 4</span><br><span class="line">- 下标 5 ：另两个 3 在下标 2 和 6 ，|5 - 2| + |5 - 6| = 4</span><br><span class="line">- 下标 6 ：另两个 3 在下标 2 和 5 ，|6 - 2| + |6 - 5| = 5</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：arr = [10,5,10,10]</span><br><span class="line">输出：[5,0,3,4]</span><br><span class="line">解释：</span><br><span class="line">- 下标 0 ：另两个 10 在下标 2 和 3 ，|0 - 2| + |0 - 3| = 5</span><br><span class="line">- 下标 1 ：只有这一个 5 在数组中，所以到相同元素的间隔之和是 0</span><br><span class="line">- 下标 2 ：另两个 10 在下标 0 和 3 ，|2 - 0| + |2 - 3| = 3</span><br><span class="line">- 下标 3 ：另两个 10 在下标 0 和 2 ，|3 - 0| + |3 - 2| = 4</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li>  <code>n == arr.length</code></li>
+<li>  <code>1 &lt;= n &lt;= 105</code></li>
+<li>  <code>1 &lt;= arr[i] &lt;= 105</code></li>
+</ul>
+<p><strong>提交：</strong></p>
+<blockquote>
+<p>  其实不需要记录数组，这样写只是看着方便</p>
+</blockquote>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> std::collections::HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">impl</span> Solution &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">get_distances</span></span>(arr: <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt;) -&gt; <span class="built_in">Vec</span>&lt;<span class="built_in">i64</span>&gt; &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> cnts = arr.iter().enumerate().fold(HashMap::new(), |<span class="keyword">mut</span> mp, (idx, &amp;val)| &#123;</span><br><span class="line">            (*mp.entry(val).or_insert(<span class="built_in">vec!</span>[])).push(idx);</span><br><span class="line">            mp</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> ans = <span class="built_in">vec!</span>[<span class="number">0</span>; arr.len()];</span><br><span class="line">        cnts.iter().for_each(|(_, arr)| Solution::distance(arr, &amp;<span class="keyword">mut</span> ans));</span><br><span class="line">        ans</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">distance</span></span>(arr: &amp;<span class="built_in">Vec</span>&lt;<span class="built_in">usize</span>&gt;, ans: &amp;<span class="keyword">mut</span> <span class="built_in">Vec</span>&lt;<span class="built_in">i64</span>&gt;) &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> diff = <span class="built_in">vec!</span>[<span class="number">0</span>; arr.len()];</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> sum = <span class="built_in">vec!</span>[<span class="number">0</span>; arr.len()];</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span>..arr.len() &#123;</span><br><span class="line">            diff[i] = (arr[i] - arr[<span class="number">0</span>]) <span class="keyword">as</span> <span class="built_in">i64</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span>..arr.len() &#123;</span><br><span class="line">            sum[i] = sum[i - <span class="number">1</span>] + diff[i];</span><br><span class="line">        &#125;</span><br><span class="line">        ans[arr[<span class="number">0</span>]] = sum[arr.len() - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span>..arr.len() &#123;</span><br><span class="line">            <span class="comment">// diff 记录 [0, x1 - x0, ... xn-1 - x0]</span></span><br><span class="line">            <span class="comment">// sum 记录 \sum (xi - x0)</span></span><br><span class="line">            <span class="comment">// 以 x_i 为分界，左侧和取反加上 i 个 xi - x0</span></span><br><span class="line">            <span class="comment">// 右侧和减去 n - i + 1 个 xi - x0</span></span><br><span class="line">            <span class="keyword">let</span> left = sum[i - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">let</span> right = sum[arr.len() - <span class="number">1</span>] - sum[i - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">let</span> curr = -left + i <span class="keyword">as</span> <span class="built_in">i64</span> * diff[i] + right - (arr.len() - i) <span class="keyword">as</span> <span class="built_in">i64</span> * diff[i];</span><br><span class="line">            ans[arr[i]] = curr;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="T4-5966-还原原数组"><a href="#T4-5966-还原原数组" class="headerlink" title="T4 5966. 还原原数组"></a>T4 5966. 还原原数组</h2><ul>
+<li>  **User Accepted:**531</li>
+<li>  **User Tried:**998</li>
+<li>  **Total Accepted:**603</li>
+<li>  **Total Submissions:**2237</li>
+<li>  <strong>Difficulty:</strong> <strong>Hard</strong></li>
+</ul>
+<p>Alice 有一个下标从 <strong>0</strong> 开始的数组 <code>arr</code> ，由 <code>n</code> 个正整数组成。她会选择一个任意的 <strong>正整数</strong> <code>k</code> 并按下述方式创建两个下标从 <strong>0</strong> 开始的新整数数组 <code>lower</code> 和 <code>higher</code> ：</p>
+<ol>
+<li> 对每个满足 <code>0 &lt;= i &lt; n</code> 的下标 <code>i</code> ，<code>lower[i] = arr[i] - k</code></li>
+<li> 对每个满足 <code>0 &lt;= i &lt; n</code> 的下标 <code>i</code> ，<code>higher[i] = arr[i] + k</code></li>
+</ol>
+<p>不幸地是，Alice 丢失了全部三个数组。但是，她记住了在数组 <code>lower</code> 和 <code>higher</code> 中出现的整数，但不知道每个整数属于哪个数组。请你帮助 Alice 还原原数组。</p>
+<p>给你一个由 2n 个整数组成的整数数组 <code>nums</code> ，其中 <strong>恰好</strong> <code>n</code> 个整数出现在 <code>lower</code> ，剩下的出现在 <code>higher</code> ，还原并返回 <strong>原数组</strong> <code>arr</code> 。如果出现答案不唯一的情况，返回 <strong>任一</strong> 有效数组。</p>
+<p><strong>注意：</strong>生成的测试用例保证存在 <strong>至少一个</strong> 有效数组 <code>arr</code> 。</p>
+<p> <strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [2,10,6,4,8,12]</span><br><span class="line">输出：[3,7,11]</span><br><span class="line">解释：</span><br><span class="line">如果 arr = [3,7,11] 且 k = 1 ，那么 lower = [2,6,10] 且 higher = [4,8,12] 。</span><br><span class="line">组合 lower 和 higher 得到 [2,6,10,4,8,12] ，这是 nums 的一个排列。</span><br><span class="line">另一个有效的数组是 arr = [5,7,9] 且 k = 3 。在这种情况下，lower = [2,4,6] 且 higher = [8,10,12] 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,1,3,3]</span><br><span class="line">输出：[2,2]</span><br><span class="line">解释：</span><br><span class="line">如果 arr = [2,2] 且 k = 1 ，那么 lower = [1,1] 且 higher = [3,3] 。</span><br><span class="line">组合 lower 和 higher 得到 [1,1,3,3] ，这是 nums 的一个排列。</span><br><span class="line">注意，数组不能是 [1,3] ，因为在这种情况下，获得 [1,1,3,3] 唯一可行的方案是 k = 0 。</span><br><span class="line">这种方案是无效的，k 必须是一个正整数。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [5,435]</span><br><span class="line">输出：[220]</span><br><span class="line">解释：</span><br><span class="line">唯一可行的组合是 arr = [220] 且 k = 215 。在这种情况下，lower = [5] 且 higher = [435] 。</span><br></pre></td></tr></table></figure>
+
+<p> <strong>提示：</strong></p>
+<ul>
+<li>  <code>2 * n == nums.length</code></li>
+<li>  <code>1 &lt;= n &lt;= 1000</code></li>
+<li>  <code>1 &lt;= nums[i] &lt;= 109</code></li>
+<li>  生成的测试用例保证存在 <strong>至少一个</strong> 有效数组 <code>arr</code></li>
+</ul>
+<p><strong>答案：</strong></p>
+<blockquote>
+<p>  枚举可行的所有 k 值即可。显然 k 可以通过枚举数组里最大值或最小值与其他值的差值得到。</p>
+</blockquote>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">impl</span> Solution &#123;</span><br><span class="line">    <span class="keyword">pub</span> <span class="function"><span class="keyword">fn</span> <span class="title">recover_array</span></span>(<span class="keyword">mut</span> nums: <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt;) -&gt; <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt; &#123;</span><br><span class="line">        nums.sort();</span><br><span class="line">        <span class="keyword">let</span> len = nums.len();</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span>..len &#123;</span><br><span class="line">            <span class="keyword">let</span> k = nums[i] - nums[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">if</span> k == <span class="number">0</span> || k &amp; <span class="number">1</span> == <span class="number">1</span> &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">mut</span> vis = <span class="built_in">vec!</span>[<span class="literal">false</span>; len];</span><br><span class="line">            <span class="keyword">let</span> <span class="keyword">mut</span> ans = <span class="built_in">vec!</span>[nums[<span class="number">0</span>] + k / <span class="number">2</span>];</span><br><span class="line">            vis[i] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">let</span> (<span class="keyword">mut</span> l, <span class="keyword">mut</span> r) = (<span class="number">1</span>, i + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">while</span> r &lt; len &#123;</span><br><span class="line">                <span class="keyword">while</span> l &lt; len &amp;&amp; vis[l] &#123;</span><br><span class="line">                    l += <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">while</span> r &lt; len &amp;&amp; nums[r] - nums[l] &lt; k &#123;</span><br><span class="line">                    r += <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> r &lt; len &amp;&amp; nums[r] - nums[l] &gt; k &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                vis[l] = <span class="literal">true</span>;</span><br><span class="line">                vis[r] = <span class="literal">true</span>;</span><br><span class="line">                ans.push(nums[l] + k / <span class="number">2</span>);</span><br><span class="line">                l += <span class="number">1</span>;</span><br><span class="line">                r += <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> ans.len() == len / <span class="number">2</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> ans;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">unreachable!</span>()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">MiracleSNeko</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2021/12/26/weekly-contest-273/">http://example.com/2021/12/26/weekly-contest-273/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/LeetCode-%E5%91%A8%E8%B5%9B/">LeetCode 周赛</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/01/09/weekly-contest-275/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">LeetCode 周赛 275</div></div></a></div><div class="next-post pull-right"><a href="/2021/12/19/weekly-contest-272/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">LeetCode 周赛 272</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2021/11/28/weekly-contest-269/" title="LeetCode 周赛 269"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-28</div><div class="title">LeetCode 周赛 269</div></div></a></div><div><a href="/2021/12/12/weekly-contest-271/" title="LeetCode 周赛 271"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-12</div><div class="title">LeetCode 周赛 271</div></div></a></div><div><a href="/2021/12/19/weekly-contest-272/" title="LeetCode 周赛 272"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-19</div><div class="title">LeetCode 周赛 272</div></div></a></div><div><a href="/2022/01/09/weekly-contest-275/" title="LeetCode 周赛 275"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-09</div><div class="title">LeetCode 周赛 275</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">MiracleSNeko</div><div class="author-info__description">世界には今も確かに希望がありますよ。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LeetCode-%E5%91%A8%E8%B5%9B-273"><span class="toc-number">1.</span> <span class="toc-text">LeetCode 周赛 273</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#T3-5965-%E7%9B%B8%E5%90%8C%E5%85%83%E7%B4%A0%E7%9A%84%E9%97%B4%E9%9A%94%E4%B9%8B%E5%92%8C"><span class="toc-number">1.1.</span> <span class="toc-text">T3 5965. 相同元素的间隔之和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T4-5966-%E8%BF%98%E5%8E%9F%E5%8E%9F%E6%95%B0%E7%BB%84"><span class="toc-number">1.2.</span> <span class="toc-text">T4 5966. 还原原数组</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/01/09/weekly-contest-275/" title="LeetCode 周赛 275"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 周赛 275"/></a><div class="content"><a class="title" href="/2022/01/09/weekly-contest-275/" title="LeetCode 周赛 275">LeetCode 周赛 275</a><time datetime="2022-01-09T06:12:09.000Z" title="Created 2022-01-09 14:12:09">2022-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/26/weekly-contest-273/" title="LeetCode 周赛 273"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 周赛 273"/></a><div class="content"><a class="title" href="/2021/12/26/weekly-contest-273/" title="LeetCode 周赛 273">LeetCode 周赛 273</a><time datetime="2021-12-26T09:26:21.000Z" title="Created 2021-12-26 17:26:21">2021-12-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/19/weekly-contest-272/" title="LeetCode 周赛 272"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 周赛 272"/></a><div class="content"><a class="title" href="/2021/12/19/weekly-contest-272/" title="LeetCode 周赛 272">LeetCode 周赛 272</a><time datetime="2021-12-19T05:56:42.000Z" title="Created 2021-12-19 13:56:42">2021-12-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/12/weekly-contest-271/" title="LeetCode 周赛 271"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 周赛 271"/></a><div class="content"><a class="title" href="/2021/12/12/weekly-contest-271/" title="LeetCode 周赛 271">LeetCode 周赛 271</a><time datetime="2021-12-12T11:43:20.000Z" title="Created 2021-12-12 19:43:20">2021-12-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/28/weekly-contest-269/" title="LeetCode 周赛 269"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LeetCode 周赛 269"/></a><div class="content"><a class="title" href="/2021/11/28/weekly-contest-269/" title="LeetCode 周赛 269">LeetCode 周赛 269</a><time datetime="2021-11-28T13:05:37.000Z" title="Created 2021-11-28 21:05:37">2021-11-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By MiracleSNeko</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script defer src="/live2d-widget/autoload.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
